@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  
+  <style>
+    body {
+      font-family: "Lato", sans-serif;
+    }
+    
+.sidenavbar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index:999;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenavbar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenavbar a:hover {
+  color: #f1f1f1;
+}
+
+.subnav {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.subnav :hover {
+  color: #f1f1f1;
+}
+
+.sidenavbar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+    @media screen and (max-height: 450px) {
+  .sidenavbar {padding-top: 15px;}
+  .sidenavbar a {font-size: 18px;}
+}
+
+.btn-signout{
+  width: 140px;
+  height: 40px;
+  color: white !important;
+  background-color: #BE3455;
+  margin-left: 30px;
+  margin-top: 10px;
+  border-radius: 10px;
+  align-content: center;
+}
+    </style>
+    
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <button onclick="openNav()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="navbar-nav mr-auto">
+        <a href="index.html">
+        <img src="https://you-goods.com/uploads/common/logo.svg" 
+        class="logo"/></a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+
+        <!------- Keychain section --------->
+        <li class="nav-item dropdown megamenu-li">
+          <a class="nav-link dropdown-toggle nav-txt" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Product</a>
+          <div class="dropdown-menu megamenu" aria-labelledby="navbarDropdown">
+  
+            <div class="containerNav">
+              <div class="row">
+                <div class="col-md-3">
+                  <ul class="nav flex-column">
+                    <li class="nav-item">
+                      <a class="nav-link active" href="allProduct.html">All product</a>
+                    </li>
+
+                    <li class="nav-item">
+                      <a class="nav-link active" href="#">Keychains</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">PVC Keychain</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Acrylic Keychain</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Reflective Keychain</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Printed Reflective Keychain</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Hard Reflective Keychain</a>
+                    </li>
+
+                    <li class="nav-item">
+                      <a class="nav-link active" href="#">Coasters</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link " href="#">PVC Coaster</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Acrylic Coaster</a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="col-md-3">
+                  <ul class="nav flex-column">
+                    <li class="nav-item">
+                      <a class="nav-link active" href="#">Desk Accessories & Stationery </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Acrylic Standees</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Reflective Sticker</a>
+                    </li>
+                   </ul>
+
+                   <ul class="nav flex-column">
+                    <li class="nav-item">
+                      <a class="nav-link active" href="#">Accessories</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Reflective Slap Band</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Acrylic Phone Stand</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">PVC Patches</a>
+                    </li>
+                   </ul>
+                </div>
+
+                <div class="col-md-3">
+                    <ul class="nav flex-column">
+                      <li class="nav-item">
+                        <a class="nav-link active" href="#">Microfiber</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Microfiber Lens Cloth</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Microfiber Pouch</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Microfiber Mousepad</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Recycled Microfiber Cloth</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Recycled Microfiber Pouch</a>
+                      </li>
+                     </ul>
+                  </div>
+
+                <div class="col-md-3">
+                  <a target="_blank" href="https://bootstrapcreative.com/resources/a-beginners-guide-to-hubspot-cms/">
+                    <img src="https://i0.wp.com/bootstrapcreative.com/wp-bc/wp-content/uploads/2022/07/beginners-guide-to-hubspot-cms-cover.png?w=200&ssl=1" alt="Web Design Guides" class="img-fluid">
+                  </a>
+                  <p class="text-white">Get Free Guides</p>
+  
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <!------- Gallery section --------->
+        <li class="nav-item dropdown megamenu-li">
+          <a class="nav-link dropdown-toggle nav-txt" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Gallery
+          </a>
+          <div class="dropdown-menu megamenu" aria-labelledby="navbarDropdown">
+  
+            <div class="containerNav">
+              <div class="row">
+
+                <div class="col-md-3">
+                  <ul class="nav flex-column">
+                    <li class="nav-item">
+                      <a class="nav-link active" href="Gallery.html">All Product</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">PVC(Rubber)</a>
+                      </li>       
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">PVC Keychain</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">PVC Coaster</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">PVC Patches</a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="col-md-3">
+                    <ul class="nav flex-column">
+                      <li class="nav-item">
+                        <a class="nav-link active" href="#">Acrylic</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link " href="#">Acrylic Keychain</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Acrylic Coaster</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="#">Acrylic Standess</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">Acrylic Hair Tie</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">Acrylic Pin</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">Acrylic Phone Stand</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3">
+                  <ul class="nav flex-column">
+                    <li class="nav-item">
+                      <a class="nav-link active" href="#">Reflective</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Reflective Keychain</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Printed Keychain</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Hard Keychain</a>
+                      </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Reflective Sticker</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Reflective Slap Band</a>
+                      </li>
+                   </ul>
+                </div>
+
+                <div class="col-md-3">
+                     <ul class="nav flex-column">
+                      <li class="nav-item">
+                        <a class="nav-link active" href="#">Microfiber</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="#">Microfiber Lens Cloth</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">Microfiber Pouch</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">Microfiber Mousepad</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">Recycled Microfiber Cloth</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">Recycled Microfiber Pouch</a>
+                        </li>
+                     </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown megamenu-li">
+          <a class="nav-link dropdown-toggle nav-txt" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Guide
+          </a>
+          <div class="dropdown-menu megamenu" aria-labelledby="navbarDropdown">
+            <div class="containerNav">
+              <div class="row">
+                <div class="col-md-6">
+                  <ul class="nav flex-column">
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#">FAQs</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#">You-Goods Points</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#">How to Order</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#">Attachments</a>
+                  </li>
+                </ul>
+                </div>
+                <div class="col-md-6">
+                  <a target="_blank" href="https://bootstrapcreative.com/resources/">
+                    <img src="https://i0.wp.com/bootstrapcreative.com/wp-bc/wp-content/uploads/2020/09/Filtered-Paint-Image-Instagram-Square.png?w=200&ssl=1" alt="Web Design Resources" class="img-fluid">
+                  </a>
+                  <p class="text-white">Free Web Design Resources</p>  
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-txt" href="#">Sales & Deals</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-txt" href="Inquiry.html">Contact Us</a>
+        </li>
+      </ul>
+
+    </div>
+
+      <form class="form-inline my-2 my-lg-0">
+        <a href="#">
+           <i class="fas fa-shopping-cart fa-lg icon-cart"></i> 
+        </a>
+        <div class="nav-item dropdown megamenu-li">
+            <a onclick="openPerson()" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="bi bi-person fa-2x icon-person"></i>
+            </a>
+            <ul class="dropdown-menu  megamenu" aria-labelledby="navbarDropdown">
+              <div class="containerNav">
+                <div class="row">
+                  <div class="col-md-12">
+                    <ul class="nav flex-column ">
+                    <li class="nav-item">
+                      <a class="nav-link nav-txt" href="#">Customer name</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link nav-txt" href="#">Setting</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link nav-txt" href="#">Points Reward</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link nav-txt" href="FindOrder.html">Find your Order</a>
+                    </li>
+
+                    <a href="index.html" class="btn-signout" style="text-align: center;">Sign-out</a> 
+                  </ul>
+                  </div>
+                </div>
+              </div>
+            </ul>
+          </div>
+      </form>
+  </nav>
+
+  <!-- Navbar of small screen -->
+   
+  <div id="myPersonnav" class="sidenavbar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closePerson()">&times;</a>
+    <a href="#">Customer Name</a>
+    <a href="#">Setting</a>
+    <a href="FindOrder.html">Find your Order</a>
+    <a href="index.html" class="btn-signout">Sign-out</a> 
+
+  </div>
+  <!-- ------- Main ------- -->
+  <div id="mySidenav" class="sidenavbar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a class="subnav" style="cursor:pointer" onclick="openProduct()">Product</a>
+    <a class="subnav" style="cursor:pointer" onclick="openGallery()">Gallery</a>
+    <a class="subnav" style="cursor:pointer" onclick="openGuide()">Guide</a>
+    <a href="#">Sales&Deals</a>
+    <a href="contact_specific.html">Contact Us</a>
+  </div>
+<!-- ------- Product ------- -->
+  <div id="myProductnav" class="sidenavbar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeProduct()">&times;</a>
+    <a href="allProduct.html">All product</a>
+    <a class="subnav" style="cursor:pointer" onclick="openKeychains1()">Keychains</a>
+    <a class="subnav" style="cursor:pointer" onclick="openDesk1()">Desk Accessories&Stationery</a>
+    <a class="subnav" style="cursor:pointer" onclick="openMicrofiber1()">Microfiber</a>
+    <a class="subnav" style="cursor:pointer" onclick="openCoasters1()">Coasters</a>
+    <a class="subnav" style="cursor:pointer" onclick="openAccessories1()">Accessories</a>
+  </div>
+
+  <!-- keychain -->
+  <div id="myKeychainsnav1" class="sidenavbar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeKeychains1()">&times;</a>
+    <a href="#">PVC Keychain</a>
+    <a href="#">Acrylic Keychain</a>
+    <a href="#">Reflective Keychain</a>
+    <a href="#">Printed Reflective Keychain</a>
+    <a href="#">Hard Reflective Keychain</a>
+  </div>
+  <!-- Desk Accessories&Stationery -->
+  <div id="myDesknav1" class="sidenavbar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeDesk1()">&times;</a>
+    <a href="#">Acrylic Standees</a>
+    <a href="#">Reflective Sticker</a>
+  </div>
+  <!-- Microfiber -->
+  <div id="myMicrofibernav1" class="sidenavbar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeMicrofiber1()">&times;</a>
+    <a href="#">Microfiber Lens Cloth</a>
+    <a href="#">Microfiber Pouch</a>
+    <a href="#">Microfiber Mousepad</a>
+    <a href="#">Recyled Microfiber Cloth</a>
+    <a href="#">Recyled Microfiber Pouch</a>
+  </div>
+  <!-- Coasters -->
+  <div id="myCoastersnav1" class="sidenavbar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeCoasters1()">&times;</a>
+    <a href="#">PVC Coaster</a>
+    <a href="#">Acrylic Coaster</a>
+  </div>
+  <!-- Accessories -->
+  <div id="myAccessoriesnav1" class="sidenavbar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeAccessories1()">&times;</a>
+    <a href="#">Acrylic Hair Tie</a>
+    <a href="#">Acrylic Keychain</a>
+    <a href="#">Acrylic Keychain</a>
+    <a href="#">Acrylic Pin</a>
+    <a href="#">Reflective Slap Band</a>
+    <a href="#">Acrylic Phone Stand</a>
+    <a href="#">PVC Patches</a>
+  </div>
+
+ <!-- ------- Gallery ---------- -->
+  <div id="myGallerynav" class="sidenavbar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeGallery()">&times;</a>
+    <a href="#">All product</a>
+    <a class="subnav" style="cursor:pointer" onclick="openPVC2()">PVC(rubber)</a>
+    <a class="subnav" style="cursor:pointer" onclick="openAcrylic2()">Acrylic</a>
+    <a class="subnav" style="cursor:pointer" onclick="openReflective2()">Reflective</a>
+    <a class="subnav" style="cursor:pointer" onclick="openMicrofiber2()">Microfiber</a>
+  </div>
+  <!-- PVC(Rubber) -->
+  <div id="myPVC2nav" class="sidenavbar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closePVC2()">&times;</a>
+    <a href="#">PVC Keychain</a>
+    <a href="#">PVC Coaster</a>
+    <a href="#">PVC Patches</a>
+  </div>
+  <!-- Acrylic -->
+  <div id="myAcrylic2nav" class="sidenavbar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeAcrylic2()">&times;</a>
+    <a href="#">Acrylic Keychain</a>
+    <a href="#">Acrylic Coaster</a>
+    <a href="#">Acrylic Standess</a>
+    <a href="#">Acrylic Hair Tie</a>
+    <a href="#">Acrylic Pin</a>
+    <a href="#">Acrylic Phone Stand</a>
+  </div>
+  <!-- Refiective -->
+  <div id="myReflective2nav" class="sidenavbar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeReflective2()">&times;</a>
+    <a href="#">Reflective Keychain</a>
+    <a href="#">Printed Reflective </a>
+    <a href="#">Hard Reflective </a>
+    <a href="#">Reflective Sticker</a>
+    <a href="#">Reflective Slap Band</a>
+  </div>
+   <!-- Microfiber -->
+   <div id="myMicrofiber2nav" class="sidenavbar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeMicrofiber2()">&times;</a>
+    <a href="#">Microfiber Lens Cloth</a>
+    <a href="#">Microfiber Pouch</a>
+    <a href="#">Microfiber Mousepad</a>
+  </div>
+
+  <!-- --------Guide------- -->
+  <div id="myGuidenav" class="sidenavbar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeGuide()">&times;</a>
+    <a href="#">FAQs</a>
+    <a href="#">You-Goods Points</a>
+    <a href="#">How to Order</a>
+    <a href="#">Attachments</a>
+  </div>
+
+
+  <script>
+    // ----- Main Nav -----
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "100%";
+    }
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+
+    // ----- Product Nav -----
+    function openProduct() {
+      document.getElementById("myProductnav").style.width = "100%";
+    }
+    function closeProduct() {
+      document.getElementById("myProductnav").style.width = "0";
+    }
+
+    function openKeychains1() {
+      document.getElementById("myKeychainsnav1").style.width = "100%";
+    }
+    function closeKeychains1() {
+      document.getElementById("myKeychainsnav1").style.width = "0";
+    }
+
+    function openDesk1() {
+      document.getElementById("myDesknav1").style.width = "100%";
+    }
+    function closeDesk1() {
+      document.getElementById("myDesknav1").style.width = "0";
+    }
+
+    function openMicrofiber1() {
+      document.getElementById("myMicrofibernav1").style.width = "100%";
+    }
+    function closeMicrofiber1() {
+      document.getElementById("myMicrofibernav1").style.width = "0";
+    }
+
+    function openCoasters1() {
+      document.getElementById("myCoastersnav1").style.width = "100%";
+    }
+    function closeCoasters1() {
+      document.getElementById("myCoastersnav1").style.width = "0";
+    }
+
+    function openAccessories1() {
+      document.getElementById("myAccessoriesnav1").style.width = "100%";
+    }
+    function closeAccessories1() {
+      document.getElementById("myAccessoriesnav1").style.width = "0";
+    }
+
+    // ----- Gallery Nav -----
+    function openGallery() {
+      document.getElementById("myGallerynav").style.width = "100%";
+    }
+    function closeGallery() {
+      document.getElementById("myGallerynav").style.width = "0";
+    }
+
+    function openPVC2() {
+      document.getElementById("myPVC2nav").style.width = "100%";
+    }
+    function closePVC2() {
+      document.getElementById("myPVC2nav").style.width = "0";
+    }
+
+    function openAcrylic2() {
+      document.getElementById("myAcrylic2nav").style.width = "100%";
+    }
+    function closeAcrylic2() {
+      document.getElementById("myAcrylic2nav").style.width = "0";
+    }
+
+    function openReflective2() {
+      document.getElementById("myReflective2nav").style.width = "100%";
+    }
+    function closeReflective2() {
+      document.getElementById("myReflective2nav").style.width = "0";
+    }
+
+    function openMicrofiber2() {
+      document.getElementById("myMicrofiber2nav").style.width = "100%";
+    }
+    function closeMicrofiber2() {
+      document.getElementById("myMicrofiber2nav").style.width = "0";
+    }
+    // ----- Guide Nav -----
+    function openGuide() {
+      document.getElementById("myGuidenav").style.width = "100%";
+    }
+    function closeGuide() {
+      document.getElementById("myGuidenav").style.width = "0";
+    }
+
+    // ----- Person Nav -----
+    function openPerson() {
+
+      console.log($(window).width());
+      
+      if ($(window).width() <= 991)
+      {
+          document.getElementById("myPersonnav").style.width = "100%";
+          document.getElementById("myPersonnav").style.display = "block";
+          $('.megamenu').hide();
+          $('#navbarSupportedContent').hide();
+      }
+    }
+    function closePerson() {
+      document.getElementById("myPersonnav").style.width = "0";
+    }
+    </script>
+
+</body>
+
+<script>
+  $(document).ready(function() {
+    $(".megamenu").on("click", function(e) {
+      e.stopPropagation();
+    });
+  });
+
+  $(document).ready(function() {
+  if ($(window).width() <= 991) {
+    // ปิดการทำงานของ data-toggle
+    $('.navbar-toggler').attr('data-toggle', '');
+  }
+});
+</script>
+</html>

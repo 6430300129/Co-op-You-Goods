@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+      <meta name="generator" content="Hugo 0.101.0">
+      <title>Carousel Template · Bootstrap v4.6</title>
+  
+      <link rel="canonical" href="https://getbootstrap.com/docs/4.6/examples/carousel/">
+  
+      <meta name=".category img {
+          width: 100%; /* ปรับเต็มพื้นที่ container */
+          height: 350px; /* ความสูงเท่ากัน */
+          object-fit: cover; /* ปรับให้สมดุลในกรอบ */
+        }" content="">
+  
+        <meta name=".material img {
+          width: 100%; /* ปรับเต็มพื้นที่ container */
+          height: 350px; /* ความสูงเท่ากัน */
+          object-fit: cover; /* ปรับให้สมดุลในกรอบ */
+        }" content="">
+  
+      
+  
+      <!-- Bootstrap core CSS -->
+      <link href="/style/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+      <link href="../style/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"> <!--  icon-cart -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet"> <!--  icon-search -->
+  
+      <link href="css/Navbarstyle.css" rel="stylesheet"> <!--  import Navbar style -->
+      <link href="css/FooterStyle.css" rel="stylesheet"> <!--  import Footer style -->
+
+    <style>
+        .form-boxcontrol{
+            border-radius: 30px;
+        }
+        .card-registration .select-input.form-control[readonly]:not([disabled]) {
+            font-size: 1rem;
+            line-height: 2.15;
+            padding-left: .75em;
+            padding-right: .75em;
+        }
+        .card-registration .select-arrow {
+            top: 13px;
+        }
+        .sigin-button{
+            width:180px;
+            height: 40px;
+            background-color: #982B1C; /* สีพื้นหลัง */
+            color: white; /* สีตัวอักษร */
+            border-radius: 50px;
+        }
+        .sigin-button:hover {
+            background-color: #9C2344; /* สีพื้นหลังเมื่อ hover */
+        }
+        .head-img{
+            width: 100%;
+            height: 350px;
+            gap: 10px;
+        }
+        .card{
+            border: none;
+        }
+        .remember-forgot{
+            display: flex; 
+        }
+        .container2{
+            max-width: 100% !important;
+        }
+        .iframe-custom{
+            width: 400px;
+        }
+        div:where(.swal2-icon) {
+            border-color: #ffffff !important;
+        }
+        @media (max-width: 768px) {
+          .remember-forgot{
+          display: inline-grid; 
+          flex-direction: row;
+          grid-auto-flow: column;
+          }
+        }
+        .logo{
+          width: 150px;
+          margin-left: 10px;
+          margin-right: 20px;
+        }
+        .form-rowfix{
+          width: 100%;
+        }
+        .left-contact{
+          display: flex;
+          align-items: baseline !important;
+        }
+
+       /* ------- drop file ---------- */
+      .drop-zone {
+        max-width: 100%;
+        height: 200px;
+        padding: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-family: "Quicksand", sans-serif;
+        font-weight: 500;
+        font-size: 20px;
+        cursor: pointer;
+        color: #cccccc;
+        border: 4px dashed #BE3455;
+        border-radius: 10px;
+      }
+      .drop-zone--over {
+        border-style: solid;
+      }
+      .drop-zone__input {
+        display: none;
+      }
+      .drop-zone__thumb {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        overflow: hidden;
+        background-color: #cccccc;
+        background-size: cover;
+        position: relative;
+      }
+      .drop-zone__thumb::after {
+        content: attr(data-label);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 5px 0;
+        color: #ffffff;
+        background: rgba(0, 0, 0, 0.75);
+        font-size: 14px;
+        text-align: center;
+      }
+
+      /* ----------------- CSS form--------------------- */
+      .landing_page * {
+        font-family: Nunito, sans-serif;
+      }
+      .landing_page .responsive-container-block {
+        min-height: 75px;
+        height: fit-content;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 0px;
+        margin-right: auto;
+        margin-bottom: 0px;
+        margin-left: auto;
+        justify-content: center;
+      }
+      .landing_page .text-blk {
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+        line-height: 25px;
+      }
+      .landing_page .responsive-cell-block {
+        min-height: 75px;
+      }
+      .landing_page .responsive-container-block.container {
+        max-width: 1320px;
+        margin-top: 60px;
+        margin-right: auto;
+        margin-bottom: 60px;
+        margin-left: auto;
+        position: relative;
+      }
+      .landing_page .form-box {
+        background-color: white;
+        color: black;
+        padding-top: 35px;
+        padding-right: 33px;
+        padding-bottom: 35px;
+        padding-left: 33px;
+        max-width: 506px;
+        border-radius: 5px;
+      }
+      .landing_page .text-blk.contactus-head {
+        font-size: 30px;
+        line-height: 40px;
+      }
+      .landing_page .text-blk.contactus-subhead {
+        color: #d4d4d4;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 18px;
+        margin-left: 0px;
+      }
+      .landing_page .input {
+        width: 100%;
+        height: 50px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        font-size: 18px;
+        padding-top: 1px;
+        padding-right: 125px;
+        padding-bottom: 1px;
+        padding-left: 22.5px;
+        border-top-width: 2px;
+        border-right-width: 2px;
+        border-bottom-width: 2px;
+        border-left-width: 2px;
+        border-top-style: none;
+        border-right-style: none;
+        border-bottom-style: none;
+        border-left-style: none;
+        border-top-color: #767676;
+        border-right-color: #767676;
+        border-bottom-color: #767676;
+        border-left-color: #767676;
+        border-image-source: initial;
+        border-image-slice: initial;
+        border-image-width: initial;
+        border-image-outset: initial;
+        border-image-repeat: initial;
+        background-color: #212223;
+        padding: 1px 12.5px 1px 22.5px;
+      }
+      .landing_page .textinput {
+        width: 100%;
+        height: 233px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 20px;
+        margin-left: 0px;
+        font-size: 18px;
+        padding-top: 22px;
+        padding-right: 22px;
+        padding-bottom: 22px;
+        padding-left: 22px;
+        background-color: #212223;
+        border-top-width: 1px;
+        border-right-width: 1px;
+        border-bottom-width: 1px;
+        border-left-width: 1px;
+        border-top-style: none;
+        border-right-style: none;
+        border-bottom-style: none;
+        border-left-style: none;
+        border-top-color: #767676;
+        border-right-color: #767676;
+        border-bottom-color: #767676;
+        border-left-color: #767676;
+        border-image-source: initial;
+        border-image-slice: initial;
+        border-image-width: initial;
+        border-image-outset: initial;
+        border-image-repeat: initial;
+      }
+      .landing_page .submit-btn {
+        width: 100%;
+        height: 56px;
+        border-radius: 50px;
+        background-color: #524747;
+        font-size: 18px;
+        font-weight: 600;
+        color: white;
+        margin-top: 10px;
+      }
+      .landing_page .responsive-cell-block.wk-tab-12.wk-mobile-12.wk-desk-6.wk-ipadp-6.emial {
+        padding-top: 0px;
+        padding-right: 10px;
+        padding-bottom: 0px;
+        padding-left: 0px;
+      }
+      .landing_page .responsive-cell-block.wk-ipadp-6.wk-tab-12.wk-mobile-12.wk-desk-6.right-one {
+        display: flex;
+        justify-content: center;
+      }
+      .landing_page .responsive-cell-block.wk-desk-6.wk-ipadp-6.wk-tab-12.wk-mobile-12.left-one {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        color: white;
+      }
+      .landing_page .text-blk.section-subhead {
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 50px;
+        margin-left: 0px;
+        max-width: 420px;
+        font-size: 18px;
+        color: black;
+      }
+      .landing_page .text-blk.section-head {
+        font-size: 40px;
+        line-height: 55px;
+        font-weight: 800;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 15px;
+        margin-left: 0px;
+        max-width: 450px;
+      }
+      .landing_page .icons-container {
+        max-width: 450px;
+        display: flex;
+        justify-content: space-evenly;
+      }
+      .landing_page .img {
+        width: 31px;
+        height: 31px;
+      }
+      .landing_page .responsive-container-block.big-container {
+        background-color: black;
+        padding-top: 0px;
+        padding-right: 50px;
+        padding-bottom: 0px;
+        padding-left: 50px;
+        position: relative;
+      }
+      .landing_page .bg-img {
+        width: 100%;
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        top: 0px;
+        height: 100%;
+        opacity: 0.5;
+        object-fit: cover;
+      }
+      @media (min-width: 300px) and (max-width: 576px) {
+        .landing_page .text-blk.section-head {
+          font-size: 26px;
+          line-height: 40px;
+        }
+        .landing_page .responsive-container-block.big-container {
+          padding-top: 0px;
+          padding-right: 20px;
+          padding-bottom: 0px;
+          padding-left: 20px;
+        }
+        .landing_page .text-blk.section-subhead {
+          margin-top: 0px;
+          margin-right: 0px;
+          margin-bottom: 30px;
+          margin-left: 0px;
+          font-size: 16px;
+        }
+        .landing_page .form-box {
+          padding-top: 30px;
+          padding-right: 15px;
+          padding-bottom: 30px;
+          padding-left: 15px;
+        }
+        .landing_page .responsive-cell-block.wk-desk-6.wk-ipadp-6.wk-tab-12.wk-mobile-12.left-one {
+          margin: 0 0 30px 0;
+        }
+        .landing_page .input {
+          height: 45px;
+        }
+        .landing_page .text-blk.contactus-head {
+          font-size: 24px;
+          line-height: 34px;
+        }
+        .landing_page .responsive-container-block.container{
+          max-width: min-content;
+        }
+        .iframe-custom{
+          width: 250px;
+        }
+      }
+      @media (max-width: 768px) {
+        .landing_page .responsive-cell-block.wk-desk-6.wk-ipadp-6.wk-tab-12.wk-mobile-12.left-one {
+          justify-content: center;
+          margin-top: 20px;
+          margin-right: 0px;
+          margin-bottom: 30px;
+          margin-left: 0px;
+        }
+        .landing_page .responsive-cell-block.wk-tab-12.wk-mobile-12.wk-desk-6.wk-ipadp-6.emial {
+          padding-top: 0px;
+          padding-right: 0px;
+          padding-bottom: 0px;
+          padding-left: 0px;
+        }
+      }
+      @media (max-width: 1083px) { 
+        .left-one {
+          margin-top: 40px;
+          order: 2; /* แสดงส่วนซ้าย (แผนที่) ทีหลัง */
+        }
+        .right-one {
+          order: 1; /* แสดงส่วนขวา (ฟอร์ม) ก่อน */
+        }
+        .landing_page .responsive-container-block.container{
+          max-width: min-content;
+        }
+      }
+      div.transbox {
+        margin: 30px;
+        background-color: #ffffff;
+        opacity: 0.6;
+        width: auto;
+      }
+      .contact-box {
+        height: auto;
+        background-color: rgba(220, 39, 39, 0.285);
+        /* background-image: url('/image/contact-bg.png'); Replace with the path to your image */
+        background-size: cover; /* This will make the image cover the entire box */
+        background-position: center; /* This will center the image */
+        border-radius: 5px;
+      }
+      .content-add{
+        margin: 20px;
+        margin-top: 60px;
+      }
+      .icon-social{
+          border-radius: 30%; 
+          width: 40px; 
+          height: 40px; 
+          padding: 3px; 
+          display: inline-; 
+          position: relative;
+          margin-right: 8px;
+      }
+      .p-footer__sns--link a {
+          display: flex; /* ใช้ Flexbox เพื่อจัดวางรูปภาพและข้อความในแนวนอน */
+          align-items: center; /* จัดข้อความให้อยู่ตรงกลางแนวตั้ง */
+          text-decoration: none; /* เอาเส้นขีดออกจากลิงก์ */
+          color: #000; /* ตั้งค่าสีของข้อความ */
+      }
+      .text-label {
+          font-size: 16px; /* กำหนดขนาดของข้อความ */
+      }
+      .bodyfix{
+        padding-top: 0px;
+        padding-bottom: 0px;
+      }
+      .important{
+        color: red;
+      }
+    </style>
+
+  </head>
+  <body>
+    <header>
+      <div id="includedNavbar"></div>
+    </header>
+
+      <a href="#" target="_blank"><img
+        src="/image/contact-img.png " alt
+        class=" head-img"></a>
+
+        <div class="landing_page">
+          <div class="responsive-container-block big-container" style="background-color: #D3DADE;">
+            <div class="responsive-container-block container">
+              <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12 left-one left-contact contact-box">
+                <div class="content-box content-add ">
+                  <iframe class="iframe-custom" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3243.4125774220893!2d139.77463757578485!3d35.61755417260794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601889fe116b9b2d%3A0x7f4611995618d2ff!2sTIME24%20Building!5e0!3m2!1sth!2sth!4v1736915829759!5m2!1sth!2sth" 
+                   height="300" style="border:0; margin-left:10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  <br><br>
+                   <p class="text-blk section-subhead">
+                    Address :  TIME24 Bldg. 10F Higashi 10  Aomi 2-4-32, Koto-ku, Tokyo 135-0065
+                  </p>
+                  <p class="text-blk section-subhead">
+                    Working Time : 1:30 AM - 10:30 AM              
+                    (Monday - Friday)(GMT)
+                  </p>
+                  <div style="margin-left: 30px;">
+                    <div class="p-footer__sns--link">
+                        <a href="https://www.instagram.com/you_goods_shop/" target="_blank">
+                            <img src="https://you-goods.com/uploads/common/footer_ico_instagram.svg" class="icon-social">
+                            <span class="text-label">Instagram</span>
+                        </a>
+                    </div>
+                    <br><br>
+                    <div class="p-footer__sns--link">
+                        <a href="https://twitter.com/you_goods_shop" target="_blank">
+                            <img src="https://you-goods.com/uploads/common/footer_ico_twitter.svg" class="icon-social">
+                            <span class="text-label">Twitter</span>
+                        </a>
+                    </div>
+                    <br><br>
+                    <div class="p-footer__sns--link">
+                        <a href="https://www.facebook.com/profile.php?id=100084063492787" target="_blank">
+                            <img src="https://you-goods.com/uploads/common/footer_ico_facebook.svg" class="icon-social">
+                            <span class="text-label">Facebook</span>
+                        </a>
+                    </div>
+                    <br><br>
+                    <div class="p-footer__sns--link">
+                        <a href="https://www.linkedin.com/company/you-goods/" target="_blank">
+                            <img src="https://you-goods.com/uploads/common/footer_ico_linkedin.svg" class="icon-social">
+                            <span class="text-label">Linkedin</span>
+                        </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="responsive-cell-block wk-ipadp-6 wk-tab-12 wk-mobile-12 wk-desk-6 right-one" id="i1zj">
+                <form class="form-box">
+                  <div class="container-block form-wrapper">
+                    <p class="text-blk contactus-head">
+                      <a class="link" href="">
+                      </a>
+                      START GET IN TOUCH
+                    </p>
+                    <p class="text-blk contactus-subhead">
+                      We are always ready to help you and answer your questions
+                    </p>
+                    <form class="formTable" id="izml">
+                      <div class="form-row form-rowfix ">
+                          <div class="form-group col-md-12">
+                              <label>Subject<span class="important">*</span></label>
+                            <select id="inputSubject" class="form-control form-boxcontrol">
+                              <option selected>Select Subject</option>
+                              <option>PVC Keychain</option>
+                              <option>Acrylic Keychain</option>
+                              <option>...</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="form-row form-rowfix ">
+                          <div class="form-group col-md-6">
+                            <label> First name<span class="important">*</span></label>
+                            <input type="text" class="form-control form-boxcontrol" id="inputFirtname" >
+                          </div>
+                          <div class="form-group col-md-6 ">
+                            <label> Last name<span class="important">*</span></label>
+                            <input type="text" class="form-control form-boxcontrol" id="inputLastname">
+                          </div>
+                        </div>
+                        <div class="form-row form-rowfix">
+                            <div class="form-group col-md-12 ">
+                                <label> Email<span class="important">*</span></label>
+                              <input type="email" class="form-control form-boxcontrol" id="inputEmail4">
+                            </div>
+                        </div>
+                        <div class="form-row form-rowfix" style="align-items: end;">
+                            <div class="form-group col-md-4 ">
+                                <label>Phone Number<span class="important">*</span></label>
+                              <select id="inputPhonecode" class="form-control form-boxcontrol">
+                                <option selected>+1</option>
+                                <option>+1</option>
+                                <option>+66</option>
+                                <option>+81</option>
+                              </select>
+                            </div>
+                            <div class="form-group col-md-8 form-rowfix">
+                              <input type="text" class="form-control form-boxcontrol" id="inputPhoneNumber" placeholder="Phone Number">
+                            </div>
+                        </div>
+                        <div class="form-row form-rowfix" style="align-items: end;">
+                            <div class="form-group col-md-8 ">
+                                <label>Select Category<span class="important">*</span></label>
+                              <select id="inputCategory" class="form-control form-boxcontrol">
+                                <option selected>Select Category</option>
+                                <option>PVC Keychain</option>
+                                <option>Acrylic Keychain</option>
+                                <option>Reflective Keychain</option>
+                                <option>...</option>
+                              </select>
+                            </div> 
+                            <div class="form-group col-md-4 form-rowfix">
+                                <label>Quantity</label>
+                              <input type="number" class="form-control form-boxcontrol" id="inputQuantity" >
+                            </div>
+                        </div>
+                        <div class="form-row form-rowfix">
+                            <div class="form-group col-md-12 ">
+                                <label> Reference Product<span class="important">*</span></label>
+                              <input type="text" class="form-control form-boxcontrol" id="inputReference">
+                            </div>
+                        </div>
+                        <div class="form-row form-rowfix">
+                            <div class="form-group col-md-12 ">
+                                <label> Message<span class="important">*</span></label>
+                              <input type="message" class="form-control form-boxcontrol" id="inputMessage" style="
+                                height: 200px;">
+                            </div>
+                        </div>
+                        <label> Upload File</label>
+                        <div class="drop-zone form-rowfix">
+                            <span class="drop-zone__prompt">
+                                &#128228; Drop file here or click to upload
+                            </span>
+                            <input type="file" name="myFile" class="drop-zone__input">
+                        </div>
+                        <script src="./src/main.js"></script>
+                        <button type="button" class="submit-btn" onclick="SendMessage()">Send message</button>
+                      </div>
+                    </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="includedFooter"></div>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script
+    src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- add jquery for Navbar working -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+
+    <!-- add sweet alert working -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+  </body>
+  
+  <script>
+    $(function(){
+        $("#includedNavbar").load("include/navbar.html"); 
+        $("#includedFooter").load("include/footer.html"); 
+    });
+
+    async function SendMessage() {
+        Swal.fire({
+        iconHtml: '<i class="bi bi-send" style="font-size: 80px; color: #BE3455;"></i>',
+        title: '<span style="color:black; font-size: 20px; font-family: Clash Display; font-weight: 300;"> Thank you for contacting us</span>',
+        html: `
+            <p style="font-size: 24px; color: black; margin: 10px 0; font-weight: 800;">We will get back to you shortly</p>
+        `,
+        showConfirmButton: false,
+        timer: 1500
+        })
+        .then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = 'SignIn.html';
+        }
+        });
+    }
+</script>
+</html>

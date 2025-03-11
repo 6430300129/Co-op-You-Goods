@@ -1,0 +1,922 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.101.0">
+    <title>Carousel Template · Bootstrap v4.6</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.6/examples/carousel/">
+    
+    <meta name=".category img {
+        width: 100%; /* ปรับเต็มพื้นที่ container */
+        height: 350px; /* ความสูงเท่ากัน */
+        object-fit: cover; /* ปรับให้สมดุลในกรอบ */
+      }" content="">
+      <meta name=".material img {
+        width: 100%; /* ปรับเต็มพื้นที่ container */
+        height: 350px; /* ความสูงเท่ากัน */
+        object-fit: cover; /* ปรับให้สมดุลในกรอบ */
+      }" content="">
+
+    <!-- Bootstrap core CSS -->
+    <link href="/style/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../style/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href= "https://unpkg.com/@primer/css@^18.0.0/dist/primer.css" /> 
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"> <!--  icon-cart -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet"> <!--  icon-search -->
+    
+    <link href="css/Navbarstyle.css" rel="stylesheet"> <!--  import Navbar style -->
+    <link href="css/FooterStyle.css" rel="stylesheet"> <!--  import Footer style -->
+
+    <link href="carousel.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+    
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      .category {
+        gap: 10px; /* ระยะห่างระหว่างรูปภาพ */
+        margin: 10px;
+        position: relative;
+      }
+      .category img {
+        width: 100%; /* ปรับเต็มพื้นที่ container */
+        height: 350px; /* ความสูงเท่ากัน */
+        object-fit: cover; /* ปรับให้สมดุลในกรอบ */
+      }
+      #txt-Cproduct {
+        position: absolute;
+        bottom: 7%; /*ระยะจากด้านล่าง*/
+        left: 10%; /* ระยะจากด้านซ้าย */
+        font-weight: bold;
+        font-size: 22px;
+        color: black;
+        background-color: white;
+      }
+      .material {
+        gap: 10px; /* ระยะห่างระหว่างรูปภาพ */
+        margin: 10px;
+        position: relative;
+      }
+      .material img {
+        width: 100%; /* ปรับเต็มพื้นที่ container */
+        height: 500px; /* ความสูงเท่ากัน */
+        object-fit: cover; /* ปรับให้สมดุลในกรอบ */
+      }
+      #txt-Mproduct {
+        position: absolute;
+        bottom: 4%; /*ระยะจากด้านล่าง*/
+        left: 10%; /* ระยะจากด้านซ้าย */
+        font-weight: bold;
+        font-size: 22px;
+        color: black;
+        background-color: white;
+      }
+      .item{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+      .logo{
+        width: 150px;
+        margin-left: 10px;
+        margin-right: 20px;
+      }
+      .ad {
+        width: 100%;
+        max-width: 1010px;
+        height: 250px;
+        background-image: url("https://you-goods.com/uploads/banner/web/banner-yougoods-christmas.jpg?v=0903");
+        background-size: 100% 100%;
+        margin: 50px auto; /* ระยะห่างด้านบน-ล่าง และกึ่งกลางแนวนอน */
+      }
+      .bodyfix{
+        padding-top: 0px;
+        padding-bottom: 0px;
+      }
+      .horizotal-scroll{
+        width: 100%;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+      }
+      .bg-light-box{
+        background-color: white !important;
+      }
+      .card-news{
+        width: auto;
+        height: 191px;
+      }
+      .txt-style{
+        color: black;
+      }
+      .zoom {
+        transition: transform .2s; /* Animation */
+        margin: 0 auto;
+      }
+      .zoom:hover {
+          transform: scale(1.1); /* เปลี่ยนอัตราขยายตามต้องการ เช่น 1.2 = 120% */
+      }
+      .carousel-fix{
+          margin-bottom: 1rem !important;
+      }
+      .box {
+          width: auto;
+          height: 300px;
+          background-color: #BE3455;
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+      }
+      .txt-box {
+          color: black;
+          font-size: 82px;
+          font-weight: 500;
+          margin-right: 5%; /* กำหนดระยะห่างจากขอบขวา */
+          padding-top: 0;
+          text-align: right;
+          font-family: Clash Display;
+      }
+      .box-pc{
+        display: block;
+      }
+      .box-mb{
+        display: none;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 1200px) {
+          .txt-box {
+              font-size: 64px; /* ลดขนาดตัวอักษรสำหรับหน้าจอที่เล็กลง */
+              margin-right: 10%;
+          }        
+          .box-mb{
+            display: none;
+            width: 500px !important; /*hide */
+            margin: 50px;
+          }
+          .box-pc{
+            display: block;
+            width: 800px !important;
+            margin: 50px;
+          } 
+      }
+      @media (max-width: 768px) {
+          .box {
+              height: 200px; /* ลดความสูงของ box */
+          }
+          .txt-box {
+              font-size: 48px; /* ลดขนาดตัวอักษรเพิ่มเติม */
+              margin-right: 8%;
+          }
+          .box-mb{
+            display: none;
+            width: 500px !important; /*hide */
+            margin: 50px;
+          }
+          .box-pc{
+            display: block;
+            width: 800px !important;
+            margin: 50px;
+          } 
+
+          .custom-swiper {
+                width: 90vw;
+                height: 70vh;
+            }
+            .close-btn {
+                top: 5px;
+                right: 10px;
+                font-size: 20px;
+            }
+      }
+      @media (max-width: 700px) {
+          .txt-box {
+              font-size: 32px; /* ขนาดตัวอักษรเล็กสำหรับมือถือ */
+              margin-right: 5%;
+          }
+          .box-mb{
+            display: block;
+            width: 400px !important; /*hide */
+            margin: 50px;
+          }
+          .box-pc{
+            display: none;
+            width: 800px !important;
+            margin: 50px;
+          } 
+      }
+      @media (max-width: 400px) {
+          .txt-box {
+              font-size: 32px; /* ขนาดตัวอักษรเล็กสำหรับมือถือ */
+              margin-right: 5%;
+          }
+          .box-mb{
+            display: block;
+            width: 400px !important; /*hide */
+            margin: 20px;
+          }
+          .box-pc{
+            display: none;
+            width: 800px !important;
+            margin: 50px;
+          } 
+      }
+      .search-bar {
+      display: flex;
+      align-items: center;
+      justify-content: right;
+      margin-top: 30px;
+      }
+      .compare-img{
+        width: 100%;
+        height: 100%  ;
+        max-width: 200px;
+        max-height: 200px;
+        margin-bottom: 20px;
+      }
+
+      /* ------- you also like ------- */
+      .album {
+          padding: 20px 0;
+      }
+      .container {
+          max-width: 1200px;
+          margin: auto;
+      }
+      .card .text-overlay {
+        position: absolute;
+        bottom: 18%;
+        left: 10%;
+        color: rgb(0, 0, 0);
+        background-color: rgba(255, 255, 255, 0.6);
+        padding-left: 10px;
+        padding-right: 10px;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 800;
+      }
+      .card .btn-overlay {
+          position: absolute;
+          bottom: 5%;
+          left: 10%;
+          background-color: #950A1F;
+          color: white;
+          border: none;
+          padding: 2px 20px;
+          border-radius: 20px;
+          font-size: calc(5px + 0.5vw);
+          text-decoration: none;
+          text-align: center;
+          display: inline-block;
+          font-weight: 800;
+      }
+      .card .btn-overlay:hover {
+          background-color: #c4122c;
+      }
+      .py-5 {
+          padding-top: 32px !important;
+          padding-bottom: 32px !important;
+      }
+      .sub-txt{
+        margin-left: 35px;
+      }
+
+      /* --- image ---- */
+
+      .container1 {
+        display: flex; /* ใช้ Flexbox */
+        justify-content: space-between; /* ปรับตำแหน่งให้แบ่งพื้นที่ */
+        align-items: flex-start; /* จัดแนววัตถุให้อยู่ในแนวเดียวกัน */
+        height: 100%; /* ให้เต็มความสูง */
+      }
+      .left {
+        width: 50%; /* ปรับความกว้างของฝั่งซ้าย */
+        padding: 20px;
+      }
+      .right {
+        width: 50%; /* ปรับความกว้างของฝั่งขวา */
+        background-color: #ffffff;
+        margin: 20px;
+        padding-top: 40px;
+      }
+      .mySwiper2 {
+        height: 20%;  /* ปรับความสูงของแถบภาพย่อ  */
+        box-sizing: border-box;
+        padding: 10px 0 0;
+      }
+      swiper1-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* Swiper Popup */
+      .swiper-popup2 {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+      }
+       
+      /* แสดง Popup */
+      .swiper-popup2.active {
+          visibility: visible;
+          opacity: 1;
+          z-index: 1050;
+      }
+      .close-btn {
+          position: absolute;
+          top: 10px;
+          right: 20px;
+          font-size: 24px;
+          color: white;
+          cursor: pointer;
+          z-index: 1001;
+      }
+      .close-btnModal{
+        position: absolute;
+          top: 10px;
+          right: 20px;
+          font-size: 24px;
+          color: rgb(0, 0, 0);
+          cursor: pointer;
+          z-index: 1001;
+      }
+    
+      /* Swiper Responsive */
+      .custom-swiper {
+          width: 80vw;
+          height: 80vh;
+          max-width: 1000px;
+          max-height: 600px;
+      }
+      
+      /* ปรับขนาดภาพ Swiper */
+      .custom-swiper swiper-slide img {
+          width: 100%;
+          height: auto;
+          object-fit: cover;
+      }  
+      .btn-buynow{
+          width: 150px;
+          height: 35px;
+          background-color: #FABC3F;
+          color: black;
+          font-weight: 500;
+          border: none;
+          border-radius: 15px;
+          margin: 10px;
+          font-size: 16px;
+      }
+      .btn-inquire{
+          width: 150px;
+          height: 35px;
+          background-color: #CC5646;
+          color: white;
+          font-weight: 500;
+          border: none;
+          border-radius: 15px;
+          margin: 10px;
+          font-size: 16px;
+      }
+
+    @media (max-width : 991px) {
+      .left {
+        width: auto; /* ปรับความกว้างของฝั่งซ้าย */
+        padding: 20px;
+      }
+      .right {
+        width: auto; /* ปรับความกว้างของฝั่งขวา */
+        background-color: #ffffff;
+        margin: 20px;
+        padding-top: 40px;
+      }
+      .container1{
+        display: contents;
+      }
+      .modal-content{
+        width: 90%;
+      }
+    }
+    </style>
+  </head>
+
+  <body class="bodyfix">
+      <header>
+          <div id="includedNavbar"></div>
+      </header>
+
+    <main role="main">
+        <div class="box">
+            <p class="txt-box">Gallery</p>
+        </div>
+      
+        <div class="form-group col-md-12 search-bar">
+          <select id="inputCategory" class="form-control form-boxcontrol">
+            <option selected>All product</option>
+            <option>PVC Keychain</option>
+            <option>Acrylic Keychain</option>
+            <option>Reflective Keychain</option>
+            <option>...</option>
+          </select>
+        </div>
+
+        <div id="myCarousel" class="carousel slide carousel-fix" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item ">
+              <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Carousel Background" preserveAspectRatio="xMidYMid slice" focusable="false">
+                  <defs>
+                      <pattern id="carouselImage2" patternUnits="userSpaceOnUse" width="100%" height="100%">
+                          <image href="https://you-goods.com/uploads/blog/intro/christmas.webp" x="0" y="0" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" />
+                      </pattern>
+                  </defs>
+                  <rect width="100%" height="100%" fill="url(#carouselImage2)" />
+              </svg>
+            
+              <div class="container">
+                <div class="carousel-caption">
+                  <h1 class="txt-style">Another example headline.</h1>
+                  <p class="txt-style">Some representative placeholder content for the second slide of the carousel.</p>
+                  <p><a class="btn btn-lg btn-primary " style="background-color: #ffcc00; color: black;" href="#">Read more</a></p>
+                </div>
+              </div>
+            </div>
+          
+            <div class="carousel-item">
+              <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Carousel Background" preserveAspectRatio="xMidYMid slice" focusable="false">
+                  <defs>
+                      <pattern id="carouselImage3" patternUnits="userSpaceOnUse" width="100%" height="100%">
+                          <image href="https://you-goods.com/uploads/blog/intro/bogo-fri.webp" x="0" y="0" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" />
+                      </pattern>
+                  </defs>
+                  <rect width="100%" height="100%" fill="url(#carouselImage3)" />
+              </svg>
+              <div class="container">
+                <div class="carousel-caption text-right">
+                  <h1 class="txt-style">One more for good measure.</h1>
+                  <p class="txt-style">Some representative placeholder content for the third slide of this carousel.</p>
+                  <p><a class="btn btn-lg btn-primary" href="#">Read more</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container marketing">
+          <div class="container bg-light-box">  
+            <div class="row ">
+              <div class="album py-5 bg-light bg-light-box " style="width: -webkit-fill-available;">
+                <div class="container ">
+                    <div class="row">    
+                      <div class="col-6 col-sm-6 col-md-3 zoom">
+                              <div class="card mb-4 shadow-sm ">
+                                  <img src="https://you-goods.com/uploads/gallery/1/93dad521272059478b33e33e27a532b2035628.webp" alt="" class="card-img-top card-news"
+                                  alt="Image" class="card-img-top card-news" 
+                                  data-toggle="modal" data-target="#imageModal" 
+                                  onclick="openModal('https://you-goods.com/uploads/blog/intro/4FD227FB-6970-41D7-A396-E03865821F82.webp')">
+                              </div>
+                      </div>
+                      <div class="col-6 col-sm-6 col-md-3 zoom">
+                              <div class="card mb-4 shadow-sm ">
+                                <img src="https://you-goods.com/uploads/blog/intro/wholesalerubber.webp" alt="" class="card-img-top card-news"
+                                alt="Image" class="card-img-top card-news" 
+                                data-toggle="modal" data-target="#imageModal" 
+                                onclick="openModal('https://you-goods.com/uploads/blog/intro/4FD227FB-6970-41D7-A396-E03865821F82.webp')">
+                              </div>
+                      </div>
+                      <div class="col-6 col-sm-6 col-md-3 zoom">
+                              <div class="card mb-4 shadow-sm ">
+                                <img src="https://you-goods.com/uploads/blog/intro/anime-rubber.webp" alt="" class="card-img-top card-news"
+                                alt="Image" class="card-img-top card-news" 
+                                data-toggle="modal" data-target="#imageModal" 
+                                onclick="openModal('https://you-goods.com/uploads/blog/intro/4FD227FB-6970-41D7-A396-E03865821F82.webp')">
+                              </div>
+
+                      </div>
+                      <div class="col-6 col-sm-6 col-md-3 zoom">
+                              <div class="card mb-4 shadow-sm ">
+                                <img src="https://you-goods.com/uploads/blog/intro/christmas.webp" alt="" class="card-img-top card-news"
+                                alt="Image" class="card-img-top card-news" 
+                                data-toggle="modal" data-target="#imageModal" 
+                                onclick="openModal('https://you-goods.com/uploads/blog/intro/4FD227FB-6970-41D7-A396-E03865821F82.webp')">
+                              </div>
+                              
+                      </div>
+                      <div class="col-6 col-sm-6 col-md-3 zoom ">
+                            <div class="card mb-4 shadow-sm ">
+                              <img src="https://you-goods.com/uploads/blog/intro/How-to-Make-Custom-Keychains-Your-Ultimate-Guide-to-Finding-Manufacturers.webp" alt="" class="card-img-top card-news"
+                              alt="Image" class="card-img-top card-news" 
+                              data-toggle="modal" data-target="#imageModal" 
+                              onclick="openModal('https://you-goods.com/uploads/blog/intro/4FD227FB-6970-41D7-A396-E03865821F82.webp')">
+                            </div>
+                      </div>
+                      <div class="col-6 col-sm-6 col-md-3 zoom">
+                            <div class="card mb-4 shadow-sm ">
+                              <img src="https://you-goods.com/uploads/products/thumbnail/custom-pvc-keychains.webp" alt="" class="card-img-top card-news"
+                              alt="Image" class="card-img-top card-news" 
+                              data-toggle="modal" data-target="#imageModal" 
+                              onclick="openModal('https://you-goods.com/uploads/blog/intro/4FD227FB-6970-41D7-A396-E03865821F82.webp')">
+                            </div>
+                      </div> 
+                      <div class="col-6 col-sm-6 col-md-3 zoom">
+                            <div class="card mb-4 shadow-sm ">
+                              <img src="https://you-goods.com/uploads/blog/intro/4FD227FB-6970-41D7-A396-E03865821F82.webp" alt="" class="card-img-top card-news"
+                              alt="Image" class="card-img-top card-news" 
+                              data-toggle="modal" data-target="#imageModal" 
+                              onclick="openModal('https://you-goods.com/uploads/blog/intro/4FD227FB-6970-41D7-A396-E03865821F82.webp')">
+                            </div>
+                      </div>
+                      <div class="col-6 col-sm-6 col-md-3 zoom">
+                            <div class="card mb-4 shadow-sm ">
+                              <img src="https://you-goods.com/uploads/blog/intro/wholesalerubber.webp" alt="" class="card-img-top card-news"
+                              alt="Image" class="card-img-top card-news" 
+                              data-toggle="modal" data-target="#imageModal" 
+                              onclick="openModal('https://you-goods.com/uploads/blog/intro/4FD227FB-6970-41D7-A396-E03865821F82.webp')">
+                            </div>
+                      </div>
+                      <div class="col-6 col-sm-6 col-md-3 zoom">
+                            <div class="card mb-4 shadow-sm ">
+                              <img src="https://you-goods.com/uploads/blog/intro/anime-rubber.webp" alt="" class="card-img-top card-news"
+                              alt="Image" class="card-img-top card-news" 
+                              data-toggle="modal" data-target="#imageModal" 
+                              onclick="openModal('https://you-goods.com/uploads/blog/intro/4FD227FB-6970-41D7-A396-E03865821F82.webp')">
+                            </div>
+                      </div>
+                      <div class="col-6 col-sm-6 col-md-3 zoom">
+                            <div class="card mb-4 shadow-sm ">
+                              <img src="https://you-goods.com/uploads/blog/intro/christmas.webp" alt="" class="card-img-top card-news"
+                              alt="Image" class="card-img-top card-news" 
+                              data-toggle="modal" data-target="#imageModal" 
+                              onclick="openModal('https://you-goods.com/uploads/blog/intro/4FD227FB-6970-41D7-A396-E03865821F82.webp')">
+                            </div>
+                      </div>
+                      <div class="col-6 col-sm-6 col-md-3 zoom ">
+                          <div class="card mb-4 shadow-sm ">
+                            <img src="https://you-goods.com/uploads/blog/intro/How-to-Make-Custom-Keychains-Your-Ultimate-Guide-to-Finding-Manufacturers.webp" alt="" class="card-img-top card-news"
+                            alt="Image" class="card-img-top card-news" 
+                            data-toggle="modal" data-target="#imageModal" 
+                            onclick="openModal('https://you-goods.com/uploads/blog/intro/4FD227FB-6970-41D7-A396-E03865821F82.webp')">
+                          </div>
+                      </div>
+                      <div class="col-6 col-sm-6 col-md-3 zoom">
+                          <div class="card mb-4 shadow-sm ">
+                            <img src="https://you-goods.com/uploads/products/thumbnail/custom-pvc-keychains.webp" alt="" class="card-img-top card-news"
+                            alt="Image" class="card-img-top card-news" 
+                            data-toggle="modal" data-target="#imageModal" 
+                            onclick="openModal('https://you-goods.com/uploads/blog/intro/4FD227FB-6970-41D7-A396-E03865821F82.webp')">
+                          </div>
+                      </div> 
+                    </div>
+                  </div>
+              </div> 
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex flex-justify-center"> 
+            <nav class="paginate-container"> 
+              <div class="pagination"> 
+                <span class="previous_page" aria-disabled="true">  
+                  Previous  
+                </span> 
+                <em aria-current="page"> 1 </em> 
+                <a href="#" aria-label="Page-2"> 2 </a> 
+                <a href="#" aria-label="Page-3"> 3 </a> 
+                <a href="#" aria-label="Page-4"> 4 </a> 
+                <span class="gap"> … </span> 
+                <a href="#" aria-label="Page-12"> 12 </a> 
+                <a href="#" aria-label="Page-13"> 13 </a> 
+                <a class="next_page" href="#" aria-label="Next"> 
+                  Next 
+                </a> 
+              </div> 
+            </nav> 
+        </div> 
+
+        <div class="sub-txt">
+          <h1>COMPARE PRODUCT</h1>
+        </div>
+
+        <div class="box-pc">
+          <div style="display: flex;margin-left: 40px;margin-top: 20px;margin-right: 40px;justify-content: center;">
+            <div style="margin-right: 50px;">
+              <select id="inputCategory" class="form-control form-boxcontrol" style="margin-right: 25px;">
+                <option selected>All product</option>
+                <option>PVC Keychain</option>
+                <option>Acrylic Keychain</option>
+                <option>Reflective Keychain</option>
+                <option>...</option>
+              </select>
+              <br><br>
+              <img src="https://you-goods.com/uploads/hero/pvckeychain/tempImageJfsF2t.jpg?edm=3999" alt="" class="compare-img">
+              <div>
+                <p>Size :  XXXX</p><br>
+                <p>Material :  XXXX</p><br>
+                <p>MOQ :  XXXX</p><br>
+                <p>Shape :  XXXX</p><br>
+                <p>Size :  XXXX</p><br>
+              </div>
+            </div>
+          
+            <div style="margin-right: 50px;">
+              <select id="inputCategory" class="form-control form-boxcontrol" style="margin-right: 25px;">
+                <option selected>All product</option>
+                <option>PVC Keychain</option>
+                <option>Acrylic Keychain</option>
+                <option>Reflective Keychain</option>
+                <option>...</option>
+              </select>
+              <br><br>
+              <img src="https://you-goods.com/uploads/hero/pvckeychain/tempImageJfsF2t.jpg?edm=3999" alt="" class="compare-img">
+              <div>
+                <p>Size :  XXXX</p><br>
+                <p>Material :  XXXX</p><br>
+                <p>MOQ :  XXXX</p><br>
+                <p>Shape :  XXXX</p><br>
+                <p>Size :  XXXX</p><br>
+              </div>
+            </div>
+          
+            <div style="margin-right: 50px;">
+              <select id="inputCategory" class="form-control form-boxcontrol" style="margin-right: 25px;">
+                <option selected>All product</option>
+                <option>PVC Keychain</option>
+                <option>Acrylic Keychain</option>
+                <option>Reflective Keychain</option>
+                <option>...</option>
+              </select>
+              <br><br>
+              <img src="https://you-goods.com/uploads/hero/pvckeychain/tempImageJfsF2t.jpg?edm=3999" alt="" class="compare-img">
+              <div>
+                <p>Size :  XXXX</p><br>
+                <p>Material :  XXXX</p><br>
+                <p>MOQ :  XXXX</p><br>
+                <p>Shape :  XXXX</p><br>
+                <p>Size :  XXXX</p><br>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="box-mb">
+          <div style="display: flex;">
+            <div style="margin-right: 50px;">
+              <select id="inputCategory" class="form-control form-boxcontrol" style="margin-right: 25px;">
+                <option selected>All product</option>
+                <option>PVC Keychain</option>
+                <option>Acrylic Keychain</option>
+                <option>Reflective Keychain</option>
+                <option>...</option>
+              </select>
+              <br><br>
+              <img src="https://you-goods.com/uploads/hero/pvckeychain/tempImageJfsF2t.jpg?edm=3999" alt="" class="compare-img">
+              <div>
+                <p>Size :  XXXX</p><br>
+                <p>Material :  XXXX</p><br>
+                <p>MOQ :  XXXX</p><br>
+                <p>Shape :  XXXX</p><br>
+                <p>Size :  XXXX</p><br>
+              </div>
+            </div>
+            <div style="margin-right: 50px;">
+              <select id="inputCategory" class="form-control form-boxcontrol" style="margin-right: 25px;">
+                <option selected>All product</option>
+                <option>PVC Keychain</option>
+                <option>Acrylic Keychain</option>
+                <option>Reflective Keychain</option>
+                <option>...</option>
+              </select>
+              <br><br>
+              <img src="https://you-goods.com/uploads/hero/pvckeychain/tempImageJfsF2t.jpg?edm=3999" alt="" class="compare-img">
+              <div>
+                <p>Size :  XXXX</p><br>
+                <p>Material :  XXXX</p><br>
+                <p>MOQ :  XXXX</p><br>
+                <p>Shape :  XXXX</p><br>
+                <p>Size :  XXXX</p><br>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="album py-5">
+          <h2 class="text-uppercase font-weight-bold mb-4 sub-txt" style="margin-bottom: 20px;">You might also like</h2>
+          <div class="container" style="justify-items: center;">
+            <div class="row  horizotal-scroll">
+                <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+                    <div class="card mb-4 shadow-sm">
+                        <img src="https://you-goods.com/uploads/products/thumbnail/custom-pvc-keychains.webp" alt="" class="card-img-top">
+                        <div class="text-overlay">PVC Keychains</div>
+                        <a href="#" class="btn-overlay">Buy</a>
+                    </div>
+                </div>
+              
+                <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+                    <div class="card mb-4 shadow-sm">
+                        <img src="https://you-goods.com/uploads/products/thumbnail/custom-pvc-keychains.webp" alt="" class="card-img-top">
+                        <div class="text-overlay">PVC Coaster</div>
+                        <a href="#" class="btn-overlay">Buy</a>
+                    </div>
+                </div>
+                <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+                    <div class="card mb-4 shadow-sm">
+                        <img src="https://you-goods.com/uploads/products/thumbnail/custom-pvc-keychains.webp" alt="" class="card-img-top">
+                        <div class="text-overlay">Acrylic Standees</div>
+                        <a href="#" class="btn-overlay">Buy</a>
+                    </div>
+                </div>
+                <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+                    <div class="card mb-4 shadow-sm">
+                        <img src="https://you-goods.com/uploads/products/thumbnail/custom-pvc-keychains.webp" alt="" class="card-img-top">
+                        <div class="text-overlay">Acrylic Keychain</div>
+                        <a href="#" class="btn-overlay">Buy</a>
+                    </div>
+                </div>
+                <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+                  <div class="card mb-4 shadow-sm">
+                      <img src="https://you-goods.com/uploads/products/thumbnail/custom-pvc-keychains.webp" alt="" class="card-img-top">
+                      <div class="text-overlay">Acrylic Standees</div>
+                      <a href="#" class="btn-overlay">Buy</a>
+                  </div>
+              </div>
+              <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+                  <div class="card mb-4 shadow-sm">
+                      <img src="https://you-goods.com/uploads/products/thumbnail/custom-pvc-keychains.webp" alt="" class="card-img-top">
+                      <div class="text-overlay">Acrylic Keychain</div>
+                      <a href="#" class="btn-overlay">Buy</a>
+                  </div>
+              </div>
+              <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+                <div class="card mb-4 shadow-sm">
+                    <img src="https://you-goods.com/uploads/products/thumbnail/custom-pvc-keychains.webp" alt="" class="card-img-top">
+                    <div class="text-overlay">Acrylic Standees</div>
+                    <a href="#" class="btn-overlay">Buy</a>
+                </div>
+            </div>
+            <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+                <div class="card mb-4 shadow-sm">
+                    <img src="https://you-goods.com/uploads/products/thumbnail/custom-pvc-keychains.webp" alt="" class="card-img-top">
+                    <div class="text-overlay">Acrylic Keychain</div>
+                    <a href="#" class="btn-overlay">Buy</a>
+                </div>
+            </div>
+            </div>
+          </div>
+        </div>
+  
+        <div id="includedFooter"></div>
+            
+        <!-- Modal -->
+        <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content" >
+              <!-- Container -->
+              <div class="container1" style="height: auto;">
+                <span class="close-btnModal" data-dismiss="modal">✖</span>
+                  <!-- ฝั่งซ้าย: สไลด์โชว์ -->
+                  <div class="left">
+                    <swiper-container style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="mySwiper"
+                      thumbs-swiper=".mySwiper2" space-between="10" navigation="true">
+                      <swiper1-slide onclick="openSwiper()">
+                        <img src="https://you-goods.com/uploads/gallery/1/93dad521272059478b33e33e27a532b2035628.webp" />
+                      </swiper1-slide>
+                    </swiper-container>
+                    <!-- แถวล่าง -->
+                    <swiper-container class="mySwiper2" space-between="10" slides-per-view="4" free-mode="true"
+                      watch-slides-progress="true">
+                      <swiper1-slide style="margin: 5px;" onclick="openSwiper()">
+                        <img src="https://you-goods.com/uploads/gallery/1/93dad521272059478b33e33e27a532b2035628.webp" />
+                      </swiper1-slide>
+                      <swiper1-slide style="margin: 5px;" onclick="openSwiper()">
+                        <img src="../image/shiba1.png" />
+                      </swiper1-slide>
+                      <swiper1-slide style="margin: 5px;" onclick="openSwiper()">
+                        <img src="../image/shiba2.png" />
+                      </swiper1-slide>
+                      <swiper1-slide style="margin: 5px;" onclick="openSwiper()">
+                        <img src="../image/shiba3.png" />
+                      </swiper1-slide>
+                    </swiper-container>
+                  </div>
+                    <!-- ฝั่งขวา: พื้นที่เปล่า -->
+                  <div class="right">
+                    <div>
+                        <h2>Gold Hill Ohno Shiba</h2>
+                        <p>Design by : Ohno</p>
+                        <p>Size : 2.75”x2.75”</p>
+                        <p>Weight : 26 g</p>
+                        <p>Side Type : Single-sided</p>
+                        <p>Base Thickness : 3mm</p>
+                        <p>Backside Printing : No</p>
+                        <p>Atachments : Split ring swivel chain(m)</p>
+                    </div>
+                    <div>
+                      <button href="" class="btn-buynow"> Buy Now</button>
+                      <button href="contact_specific.html" class="btn-inquire"> Inquire</button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+
+        <script>
+          function openModal(imageSrc, content) {
+            // เปลี่ยนแหล่งที่มาของภาพใน Modal
+            document.getElementById("modalImage").src = imageSrc;
+            document.getElementById("modalContent").innerText = content;
+          }
+
+          function closeModal() {
+            document.getElementById("modalContent").classList.remove("active");
+          }
+        </script>
+
+        <!-- Bootstrap & jQuery -->
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script> -->
+                  
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+   
+    <!-- add jquery for Navbar working -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+    
+    <!-- Swiper Popup -->
+    <div class="swiper-popup2" id="swiperPopup" onclick="closeSwiper(event)">
+      <span class="close-btn" onclick="closeSwiper(event)">✖</span>
+      <swiper-container class="custom-swiper" zoom="true" navigation="true" pagination="true" pagination-clickable="true">
+          <swiper-slide>
+              <div class="swiper-zoom-container">
+                  <img src="https://you-goods.com/uploads/gallery/1/93dad521272059478b33e33e27a532b2035628.webp" />
+              </div>
+          </swiper-slide>
+          <swiper-slide>
+              <div class="swiper-zoom-container">
+                  <img src="../image/shiba1.png" />
+              </div>
+          </swiper-slide>
+          <swiper-slide>
+              <div class="swiper-zoom-container">
+                  <img src="../image/shiba2.png" />
+              </div>
+          </swiper-slide>
+          <swiper-slide>
+              <div class="swiper-zoom-container">
+                  <img src="../image/shiba3.png" />
+              </div>
+          </swiper-slide>
+      </swiper-container>
+    </div>
+
+    <script>
+      function openSwiper() {
+          const popup = document.getElementById('swiperPopup');
+          popup.classList.add('active');
+          // รีเฟรช Swiper หลังจากแสดง Popup
+          setTimeout(() => {
+              document.querySelector('.custom-swiper').swiper.update();
+          }, 100);
+      }
+      function closeSwiper(event) {
+          // ปิดเฉพาะเมื่อกดที่พื้นหลัง (ไม่ปิดเมื่อกดใน Swiper)
+          if (event.target.classList.contains('swiper-popup2') || event.target.classList.contains('close-btn')) {
+              document.getElementById('swiperPopup').classList.remove('active');
+          }
+      }
+    </script>
+  </body>
+
+  <script>
+    $(function(){
+        $("#includedNavbar").load("include/navbar.html"); 
+        $("#includedFooter").load("include/footer.html"); 
+    });
+  </script>
+
+</html>

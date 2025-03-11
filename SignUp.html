@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+      <meta name="generator" content="Hugo 0.101.0">
+      <title>Carousel Template · Bootstrap v4.6</title>
+  
+      <link rel="canonical" href="https://getbootstrap.com/docs/4.6/examples/carousel/">
+  
+      <meta name=".category img {
+          width: 100%; /* ปรับเต็มพื้นที่ container */
+          height: 350px; /* ความสูงเท่ากัน */
+          object-fit: cover; /* ปรับให้สมดุลในกรอบ */
+      }" content="">
+      <meta name=".material img {
+        width: 100%; /* ปรับเต็มพื้นที่ container */
+        height: 350px; /* ความสูงเท่ากัน */
+        object-fit: cover; /* ปรับให้สมดุลในกรอบ */
+      }" content="">
+  
+      <!-- Bootstrap core CSS -->
+      <link href="/style/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+      <link href="../style/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="css/bootstrap.min.css?v=2">
+      <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+      <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+      <!------ Include the above in your HEAD tag ---------->
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"> <!--  icon-cart -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet"> <!--  icon-search -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet"> <!--  icon-check -->
+      <link href="css/Navbarstyle.css" rel="stylesheet"> <!--  import Navbar style -->
+      <link href="css/FooterStyle.css" rel="stylesheet"> <!--  import Footer style -->
+  <style>
+    .card-registration .select-input.form-control[readonly]:not([disabled]) {
+        font-size: 1rem;
+        line-height: 2.15;
+        padding-left: .75em;
+        padding-right: .75em;
+    }
+    .card-registration .select-arrow {
+        top: 13px;
+    }
+    .signUP-button{
+        width:180px;
+        height: 40px;
+        background-color: #982B1C; /* สีพื้นหลัง */
+        color: white; /* สีตัวอักษร */
+        border-radius: 50px;
+        justify-content: center;
+    }
+    .sigin-button:hover {
+        background-color: #9C2344; /* สีพื้นหลังเมื่อ hover */
+    }
+    .siginGF-button{
+        width: 250;
+        height: 40px;
+        gap: 10px;
+    }
+    .card{
+        border: none;
+    }
+    .remember-forgot{
+        display: flex; 
+    }
+    @media (max-width: 768px) {
+      .remember-forgot{
+      display: inline-grid; 
+      flex-direction: row;
+      grid-auto-flow: column;
+      }
+    }
+    .logo{
+      width: 150px;
+      margin-left: 10px;
+      margin-right: 20px;
+    }
+    .phone-drop{
+      width: 100px;
+      height: 47px;
+    }
+    .fixrow{
+      flex-wrap: initial;
+    }
+    .container2{
+      max-width: 100% !important;
+    }
+    .body {
+      font-family: "Lato", sans-serif;
+    }
+    .main-head{
+      height: 150px;
+      background: #FFF;
+    }
+    .sidenav {
+      height: 100%;
+      background-color: #560808;
+      overflow-x: hidden;
+      padding-top: 20px;
+    }
+    .main {
+      padding: 0px 10px;
+    }
+    @media screen and (max-height: 450px) {
+      .sidenav {padding-top: 15px;}
+    }
+    @media screen and (max-width: 450px) {
+      .login-form{
+          margin-top: 10%;
+      }
+      .register-form{
+          margin-top: 10%;
+      }
+    }
+    @media screen and (min-width: 768px){
+      .main{
+          margin-left: 40%; 
+      }
+      .sidenav{
+          width: 40%;
+          position: fixed;
+          z-index: 1;
+          top: 0;
+          left: 0;
+      }
+      .login-form{
+          margin-top: 80%;
+      }
+    
+      .register-form{
+          margin-top: 20%;
+      }
+    }
+    .login-main-text{
+      margin-top: 20%;
+      padding: 60px;
+      color: #fff;
+    }
+    .login-main-text h2{
+      font-weight: 300;
+    }
+    .btn-black{
+      background-color: #000 !important;
+      color: #fff;
+    }
+    .icon-check {
+      color: #4DC247;
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+    .swal2-icon{
+      border: none !important;
+    }   
+  </style>
+</head>
+
+<body>
+    <header>
+      <div id="includedNavbar"></div>
+    </header>
+
+    <div class="sidenav" style="z-index: -1;">
+  <div class="login-main-text">
+     <h2>Application<br> Login Page</h2>
+     <p>Login or register from here to access.</p>
+  </div>
+    </div>
+    <div class="main">
+        <form style="margin: 20px;">
+          <h2>Sign Up</h2>
+          <!-- full name -->
+          <div class="form-group">
+              <h5>Contact Information</h5>
+              <input type="text" class="form-control" id="inputFullname" placeholder="Full Name">
+          </div>
+          <div class="form-row">
+              <div class="form-group col-md-3">
+                <select id="inputPhonecode" class="form-control">
+                  <option selected>+1</option>
+                  <option>+1</option>
+                  <option>+66</option>
+                  <option>+81</option>
+                </select>
+              </div>
+
+              <div class="form-group col-md-9">
+                <input type="text" class="form-control" id="inputPhoneNumber" placeholder="Phone Number">
+              </div>
+          </div>
+          <div class="form-row">
+              <div class="form-group col-md-12">
+                <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+              </div>
+          </div>
+
+          <br><br>
+          <div class="form-row">
+              <h5>Enter your name and address(Shipping Address):</h5>
+            <div class="form-group col-md-6">
+              <input type="text" class="form-control" id="inputFirtname" placeholder="First Name">
+            </div>
+            <div class="form-group col-md-6">
+              <input type="text" class="form-control" id="inputLastname" placeholder="Last Name">
+            </div>
+          </div>
+          <div class="form-row">
+              <div class="form-group col-md-3">
+                <select id="inputPhonecode" class="form-control">
+                  <option selected>+1</option>
+                  <option>+1</option>
+                  <option>+66</option>
+                  <option>+81</option>
+                </select>
+              </div>
+
+              <div class="form-group col-md-9">
+                <input type="text" class="form-control" id="inputPhoneNumber" placeholder="Phone Number">
+              </div>
+          </div>
+          <div class="form-group">
+              <input type="text" class="form-control" id="inputCompany" placeholder="Company(Option)">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="inputAddress" placeholder="Address">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, floor, or etc(Option)">
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <input type="text" class="form-control" id="inputCity" placeholder="City">
+            </div>
+            <div class="form-group col-md-6">
+              <select id="inputState" class="form-control">
+                <option selected>State/ Provice</option>
+                <option>Alabama (AL)</option>
+                <option>Arizona (AZ)</option>
+                <option>Arkansas (AR)</option>
+                <option>California (CA)</option>
+                <option>Colorado (CO)</option>
+                <option>Connecticut (CT)</option>
+                <option>Delaware (DE)</option>
+                <option>Florida (FL)</option>
+                <option>Georgia (GA)</option>
+                <option> ...</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <select id="inputCountry" class="form-control">
+                <option selected>Country/ Region</option>
+                <option>The United States Of America(USA)</option>
+                <option>Thailand(TH)</option>
+                <option>Japan(JP)</option>
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <input type="text" class="form-control" id="inputZip" placeholder="Zip code">
+            </div>
+          </div>
+          <br><br>
+          <h5>Security</h5>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <input type="password" class="form-control" id="inputPassword" placeholder="Password" >
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <input type="password" class="form-control" id="inputConfirmPass" placeholder="Confirm Password">
+            </div>
+          </div>
+          <div style="margin-top: 20px; margin-bottom: 20px;">
+            <h5> <b>Password requirements</b></h5> 
+            <i><i class="bi bi-check-circle-fill icon-check"></i>Must contain at least 8 characters</i> <br>
+            <i><i class="bi bi-check-circle-fill icon-check"></i>Must contain at least one number</i> <br>
+            <!-- not pass -->
+            <i><i class="bi bi-check-circle-fill icon-check" style="color: #818181;"></i>Must contain at least one capital letter</i> <br> 
+          </div>
+          <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="customCheck1">
+              <label class="custom-control-label" for="customCheck1" id="ss1">By creating an account with You-Goods, 
+                I verify that I have read and agree to the Terms and Conditions as well as our Privacy Policy.* </label>
+          </div>
+          <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="customCheck2">
+              <label class="custom-control-label" for="customCheck2">I would like to receive emails and notifications 
+                from You-Goods about news, discounts, and sales. </label>
+          </div>
+          <div style="text-align: center;">
+            <button type="button" class="btn signUP-button" style="margin-top: 40px;" onclick="ConfirmCreateAccount()">Create Account</button>
+          </div>
+        </form>
+    </div>
+
+      <div id="includedFooter"></div>
+      <script
+        src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+      <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script
+        src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+        <!-- add jquery for Navbar working -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+        <!-- add sweet alert working -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+<script>
+  $(function(){
+      $("#includedNavbar").load("include/navbar.html"); 
+      $("#includedFooter").load("include/footer.html"); 
+  });
+  async function ConfirmCreateAccount() {
+      Swal.fire({
+      iconHtml: '<i class="bi bi-check-circle-fill" style="font-size: 80px; color: #BE3455;"></i>',
+      title: '<span style="color:black; font-size: 24px; font-family: Clash Display; font-weight: bold;"> Welcome to be our Membership</span>',
+      showConfirmButton: true,
+      confirmButtonText: 'Continue',
+      confirmButtonColor: '#BE3455',
+      })
+      .then((result) => {
+      if (result.isConfirmed) {
+          window.location.href = 'SignIn.html';
+      }
+      });
+  }
+</script>
+</html>

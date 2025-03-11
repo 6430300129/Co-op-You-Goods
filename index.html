@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+        <meta name="generator" content="Hugo 0.101.0">
+        <title>Carousel Template · Bootstrap v4.6</title>
+
+        <link rel="canonical" href="https://getbootstrap.com/docs/4.6/examples/carousel/">
+
+        <meta name=".category img {
+            width: 100%; /* ปรับเต็มพื้นที่ container */
+            height: 350px; /* ความสูงเท่ากัน */
+            object-fit: cover; /* ปรับให้สมดุลในกรอบ */
+        }" content="">
+        <meta name=".material img {
+            width: 100%; /* ปรับเต็มพื้นที่ container */
+            height: 350px; /* ความสูงเท่ากัน */
+            object-fit: cover; /* ปรับให้สมดุลในกรอบ */
+        }" content="">
+
+        <link href="/style/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../style/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="carousel.css" rel="stylesheet"> 
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"> <!--  icon-cart -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet"> <!--  icon-search -->
+        <link href="css/Navbarstyle.css" rel="stylesheet"> <!--  import Navbar style -->
+        <link href="css/FooterStyle.css" rel="stylesheet"> <!--  import Footer style -->
+
+        <!-- Swiper CSS -->
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+        <style>
+          .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+          }
+          .category {
+            gap: 10px; /* ระยะห่างระหว่างรูปภาพ */
+            margin: 10px;
+            position: relative;
+          }
+          .category img {
+            width: 100%; /* ปรับเต็มพื้นที่ container */
+            height: 350px; /* ความสูงเท่ากัน */
+            object-fit: cover; /* ปรับให้สมดุลในกรอบ */
+          }
+          #txt-Cproduct {
+            position: absolute;
+            bottom: 7%; /*ระยะจากด้านล่าง*/
+            left: 10%; /* ระยะจากด้านซ้าย */
+            font-weight: bold;
+            font-size: 22px;
+            color: black;
+            background-color: white;
+          }
+          .material {
+            gap: 10px; /* ระยะห่างระหว่างรูปภาพ */
+            margin: 10px;
+            position: relative;
+          }
+          .material img {
+            width: 100%; /* ปรับเต็มพื้นที่ container */
+            height: 500px; /* ความสูงเท่ากัน */
+            object-fit: cover; /* ปรับให้สมดุลในกรอบ */
+          }
+          #txt-Mproduct {
+            position: absolute;
+            bottom: 4%; /*ระยะจากด้านล่าง*/
+            left: 10%; /* ระยะจากด้านซ้าย */
+            font-weight: bold;
+            font-size: 22px;
+            color: black;
+            background-color: white;
+          }
+          .item{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+          }
+          .ad {
+            width: 100%;
+            max-width: 1010px;
+            height: 250px;
+            background-image: url("https://you-goods.com/uploads/banner/web/banner-yougoods-christmas.jpg?v=0903");
+            background-size: 100% 100%;
+            margin: 50px auto;
+          }
+          img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+          }
+          .bodyfix{
+            padding-top: 0px;
+          }
+          .horizotal-scroll{
+            width: 100%;
+            overflow-x: auto;
+            flex-wrap: nowrap;
+          }
+
+          .category-box {
+              background-color: #f5f5f5;
+              height: 400px;
+              display: flex;
+              justify-content: center;
+              align-items: flex-end;
+              border-radius: 10px;
+              position: relative;
+              overflow: hidden;
+          }
+          .category-box img {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              z-index: 1;
+          }
+          .category-box span {
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              right: 0;
+              background-color: rgba(0, 0, 0, 0.6);
+              color: white;
+              text-align: center;
+              padding: 10px;
+              z-index: 2;
+              font-weight: bold;
+              text-transform: uppercase;
+          }
+          .material-box {
+              background-color: #f5f5f5;
+              height: 400px;
+              display: flex;
+              justify-content: center;
+              align-items: flex-end;
+              position: relative;
+              overflow: hidden;
+              border-radius: 10px;
+          }
+          .material-box img {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              z-index: 1;
+          }
+          .material-box span {
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              right: 0;
+              background-color: rgba(0, 0, 0, 0.6);
+              color: white;
+              text-align: center;
+              padding: 10px;
+              z-index: 2;
+              font-weight: bold;
+              text-transform: uppercase;
+          }
+          .card-news {
+              width: auto;
+              height: 191px;
+              max-width: -webkit-fill-available;
+          }
+
+          /* ------- best seller ------- */
+          .album {
+              padding: 20px 0;
+          }
+          .container {
+              max-width: 1200px;
+              margin: auto;
+          }
+          .title-overlay {
+            max-width: 250px;
+            position: absolute;
+            bottom: 8%;
+            left: 2%;
+            color: rgb(0, 0, 0);
+            background-color: rgb(255 255 255 / 78%);
+            padding-left: 10px;
+            padding-right: 10px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: 800;
+            text-align: left;
+            z-index: 1000;
+          }
+          .card .text-overlay {
+            position: absolute;
+            bottom: 18%;
+            left: 10%;
+            color: rgb(0, 0, 0);
+            background-color: rgba(255, 255, 255, 0.6);
+            padding-left: 10px;
+            padding-right: 10px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 800;
+          }
+          .card .btn-overlay {
+              position: absolute;
+              bottom: 5%;
+              left: 10%;
+              background-color: #950A1F;
+              color: white;
+              border: none;
+              padding: 2px 20px;
+              border-radius: 20px;
+              font-size: calc(5px + 0.5vw);
+              text-decoration: none;
+              text-align: center;
+              display: inline-block;
+              font-weight: 800;
+          }
+          .card .btn-overlay:hover {
+              background-color: #c4122c;
+          }
+          .why-YG{
+              width: 100%;
+              height: 100%;
+              background-color: #FDDBBB;
+              padding: 20px;
+          }
+          .why-text{
+              font-size: 14px;
+              margin-left: 30px; 
+              margin-right: 30px;
+          }
+          .card-title{
+              font-weight: 800;
+          }
+          .text-uppercase{
+              color: black;
+          }
+
+          /* css button next previous */
+          a {
+            text-decoration: none;
+            display: inline-block;
+            padding: 8px 16px;
+          }
+          a:hover {
+            color: black;
+            text-decoration: none;
+          }
+          .previous {
+            background-color: #EEF1F6;
+            color: black;
+          }
+          .next {
+            background-color: #EEF1F6;
+            color: black;
+          }
+          .round {
+            border-radius: 50%;
+          }
+          /* end of button next previous */
+
+          .card-text{
+              color: black;
+              font-size: 14px;
+              font-family: unset;
+              font-weight: 500;
+          }
+          .swiper-button-next, .swiper-button-prev{
+              color: #999999;
+          }
+          .btn-primary{
+              background-color: #f7b900;
+              color: black;
+              border: black;
+          }
+          .btn-primary:hover {
+            background-color: #592c10; /* เปลี่ยนสีพื้นหลัง */
+            color: white; /* เปลี่ยนสีตัวอักษร */
+          }
+        </style>
+    </head>
+
+    <body style="padding-top: 0px; padding-bottom: 0px;">
+        <header>
+            <div id="includedNavbar"></div>
+        </header>
+
+        <main role="main">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                  <li data-target="#myCarousel" data-slide-to="1"></li>
+                  <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label=" :  " preserveAspectRatio="xMidYMid slice" focusable="false"><title> </title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em"> </text></svg>
+                    <div class="container">
+                      <div class="carousel-caption text-left">
+                        <h1>Example headline.</h1>
+                        <p>Some representative placeholder content for the first slide of the carousel.</p>
+                        <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label=" :  " preserveAspectRatio="xMidYMid slice" focusable="false"><title> </title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em"> </text></svg>
+                    <div class="container">
+                      <div class="carousel-caption">
+                        <h1>Another example headline.</h1>
+                        <p>Some representative placeholder content for the second slide of the carousel.</p>
+                        <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label=" :  " preserveAspectRatio="xMidYMid slice" focusable="false"><title> </title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em"> </text></svg>
+                    <div class="container">
+                      <div class="carousel-caption text-right">
+                        <h1>One more for good measure.</h1>
+                        <p>Some representative placeholder content for the third slide of this carousel.</p>
+                        <p><a class="btn btn-lg btn-primary" href="#">Buy now</a></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-target="#myCarousel" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-target="#myCarousel" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </button>
+            </div>
+
+            <div class="container my-5">
+                <h2 class="text-uppercase font-weight-bold mb-4">Shop by Category</h2>
+                <div class="row">
+                    <div class="col-12 col-sm-8 col-lg-8 mb-3">
+                        <div class="category-box" style="background-color: EFEFEF;">
+                            <!-- <img src="https://you-goods.com/uploads/index/all_pvc.webp?e=4607" alt="Keychains" /> -->
+                            <div class="title-overlay">KEYCHAINS</div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-4 col-lg-4 mb-3">
+                        <div class="category-box" style="background-color: EFEFEF;">
+                            <!-- <img src="https://you-goods.com/uploads/index/all_reflective.webp?e=4607" alt="Desk Accessories" /> -->
+                            <div class="title-overlay">DESK ACCESSORIES & STATIONERY</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-4 mb-3">
+                        <div class="category-box" style="background-color: EFEFEF;">
+                            <!-- <img src="https://you-goods.com/uploads/blog/intro/4FD227FB-6970-41D7-A396-E03865821F82.webp" alt="Coasters" /> -->
+                            <div class="title-overlay">COASTERS</div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-4 mb-3">
+                        <div class="category-box"  style="background-color: EFEFEF;">
+                            <!-- <img src="https://you-goods.com/uploads/index/all_microfiber.webp?e=4607" alt="Accessories" /> -->
+                            <div class="title-overlay">ACCESSORIES</div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-4 mb-3">
+                        <div class="category-box" style="background-color: EFEFEF;">
+                            <!-- <img src="https://you-goods.com/uploads/index/all_microfiber.webp?e=4607" alt="Microfiber" /> -->
+                            <div class="title-overlay">MICROFIBER</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <img src="https://you-goods.com/uploads/banner/web/banner-yougoods-christmas.jpg?v=2628" alt="ad1" style="width:80%;">
+
+            <div class="container my-5">
+                <h2 class="text-uppercase font-weight-bold mb-4">Shop by Material</h2>
+                <div class="row">
+                    <div class="col-sm-12 col-md-3 mb-3">
+                        <div class="material-box" style="background-color: EFEFEF;">
+                            <!-- <img src="https://you-goods.com/uploads/index/all_pvc.webp?e=1603" alt="PVC(RUBBER)" /> -->
+                            <div class="title-overlay">PVC Keychains</div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-3 mb-3">
+                        <div class="material-box"style="background-color: EFEFEF;">
+                            <!-- <img src="https://you-goods.com/uploads/index/all_acrylic.webp?e=1603" alt="Acrylic" /> -->
+                            <div class="title-overlay">Acrylic</div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-3 mb-3">
+                        <div class="material-box" style="background-color: EFEFEF;">
+                            <!-- <img src="https://you-goods.com/uploads/index/all_reflective.webp?e=1603" alt="Reflective" /> -->
+                            <div class="title-overlay">Reflective</div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-3 mb-3">
+                        <div class="material-box" style="background-color: EFEFEF;">
+                            <!-- <img src="https://you-goods.com/uploads/index/all_microfiber.webp?e=4607" alt="Microfiber" /> -->
+                            <div class="title-overlay">Microfiber</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <img src="https://you-goods.com/uploads/banner/web/Banner-new-feature-2025.jpg?v=0756" alt="ad2" style="width:80%;">
+
+            <br><br>
+
+            <div class="album py-5">
+                <div class="container" >
+                  <h2 class="text-uppercase font-weight-bold mb-4" style="margin-bottom: 20px;">Best Sellers</h2>
+                  <div class="row  horizotal-scroll">
+                      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                          <div class="card mb-4 shadow-sm">
+                              <img src="https://you-goods.com/uploads/products/thumbnail/custom-pvc-keychains.webp" alt="" class="card-img-top">
+                              <div class="text-overlay">PVC Keychains</div>
+                              <a href="#" class="btn-overlay">Buy</a>
+                          </div>
+                      </div>
+          
+                      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                          <div class="card mb-4 shadow-sm">
+                              <img src="https://you-goods.com/uploads/products/thumbnail/custom-pvc-keychains.webp" alt="" class="card-img-top">
+                              <div class="text-overlay">PVC Coaster</div>
+                              <a href="#" class="btn-overlay">Buy</a>
+                          </div>
+                      </div>
+          
+                      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                          <div class="card mb-4 shadow-sm">
+                              <img src="https://you-goods.com/uploads/products/thumbnail/custom-pvc-keychains.webp" alt="" class="card-img-top">
+                              <div class="text-overlay">Acrylic Standees</div>
+                              <a href="#" class="btn-overlay">Buy</a>
+                          </div>
+                      </div>
+                      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                          <div class="card mb-4 shadow-sm">
+                              <img src="https://you-goods.com/uploads/products/thumbnail/custom-pvc-keychains.webp" alt="" class="card-img-top">
+                              <div class="text-overlay">Acrylic Keychain</div>
+                              <a href="#" class="btn-overlay">Buy</a>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+        <h2 class="text-uppercase font-weight-bold mb-4" style="margin-bottom: 20px; margin-left: 10%; margin-top: 50px;">You-Goods News</h2>
+                  <!-- Swiper Container -->
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                <!-- Slides -->
+                  <div class="col-12 col-sm-6 col-md-4 swiper-slide">
+                      <div class="card mb-4 shadow-sm ">
+                          <img src="https://you-goods.com/uploads/blog/intro/4FD227FB-6970-41D7-A396-E03865821F82.webp" alt="" class="card-news">
+                          <div class="card-body">
+                            <h6 class="card-title">Title</h6>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">10 Dec. 2024</small>
+                            </div>
+                        </div>
+                      </div>
+                  </div>
+              
+                  <div class="col-12 col-sm-6 col-md-4  swiper-slide">
+                      <div class="card mb-4 shadow-sm ">
+                          <img src="https://you-goods.com/uploads/blog/intro/wholesalerubber.webp" alt="" class="card-news">
+                          <div class="card-body">
+                            <h6 class="card-title">Title</h6>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">10 Dec. 2024</small>
+                            </div>
+                        </div>
+                      </div>
+                  </div>
+              
+                  <div class="col-12 col-sm-6 col-md-4  swiper-slide">
+                      <div class="card mb-4 shadow-sm ">
+                          <img src="https://you-goods.com/uploads/blog/intro/anime-rubber.webp" alt="" class="card-news">
+                          <div class="card-body">
+                            <h6 class="card-title">Title</h6>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">10 Dec. 2024</small>
+                            </div>
+                        </div>
+                      </div>
+                  </div>
+              
+                  <div class="col-12 col-sm-6 col-md-4 swiper-slide">
+                      <div class="card mb-4 shadow-sm ">
+                          <img src="https://you-goods.com/uploads/blog/intro/christmas.webp" alt="" class="card-news" alt="" class="card-news">
+                          <div class="card-body">
+                            <h6 class="card-title">Title</h6>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">10 Dec. 2024</small>
+                            </div>
+                        </div>
+                      </div>
+                  </div>
+
+                  <div class="col-12 col-sm-6 col-md-4 swiper-slide">
+                    <div class="card mb-4 shadow-sm ">
+                        <img src="https://you-goods.com/uploads/blog/intro/4FD227FB-6970-41D7-A396-E03865821F82.webp" alt="" class="card-news">
+                        <div class="card-body">
+                          <h6 class="card-title">Title</h6>
+                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                          <div class="d-flex justify-content-between align-items-center">
+                              <small class="text-muted">10 Dec. 2024</small>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+            
+                  <div class="col-12 col-sm-6 col-md-4 swiper-slide">
+                    <div class="card mb-4 shadow-sm ">
+                        <img src="https://you-goods.com/uploads/blog/intro/wholesalerubber.webp" alt="" class="card-news">
+                        <div class="card-body">
+                          <h6 class="card-title">Title</h6>
+                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                          <div class="d-flex justify-content-between align-items-center">
+                              <small class="text-muted">10 Dec. 2024</small>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+              
+                  <div class="col-12 col-sm-6 col-md-4 swiper-slide">
+                    <div class="card mb-4 shadow-sm ">
+                        <img src="https://you-goods.com/uploads/blog/intro/anime-rubber.webp" alt="" class="card-news">
+                        <div class="card-body">
+                          <h6 class="card-title">Title</h6>
+                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                          <div class="d-flex justify-content-between align-items-center">
+                              <small class="text-muted">10 Dec. 2024</small>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+              
+                  <div class="col-12 col-sm-6 col-md-4 swiper-slide">
+                    <div class="card mb-4 shadow-sm ">
+                        <img src="https://you-goods.com/uploads/blog/intro/christmas.webp" alt="" class="card-news" alt="" class="card-news">
+                        <div class="card-body">
+                          <h6 class="card-title">Title</h6>
+                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                          <div class="d-flex justify-content-between align-items-center">
+                              <small class="text-muted">10 Dec. 2024</small>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                </div>
+                <!-- Navigation Buttons -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+            <br><br>
+
+            <!-- Swiper JS -->
+            <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+            <script>
+                // Initialize Swiper
+                const swiper = new Swiper('.swiper', {
+                    slidesPerView: 1, 
+                    slidesPerGroup: 1,
+                    spaceBetween: 20,
+                    navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                    },
+                    loop: true, 
+                });
+            </script>
+        
+        </div>
+
+        <div class="why-YG">
+            <h2 style="text-align: center; margin-bottom: 20px;"> Why You-Goods?</h2>
+            <div class="why-text">
+                <p>
+                You-Goods is a well-established manufacturer of custom promotional and resale products such as acrylic keychains, 
+                rubber keychains, acrylic phone stands, custom microfiber products, and more. We have been operating out of Japan 
+                and Thailand for over 15 years and have helped thousands of satisfied customers create their custom keychains, 
+                microfiber products, and more. </p>
+                <p>
+                In Japan we have a saying, 'おもてなし’ (omotenashi), which is an embodiment of 
+                Japanese culture, and the Japanese mindset. The phrase comes from the traditions of tea ceremonies, and it means to 
+                look after guests and customers with your entire heart and soul without expectation of reciprocity. Omotenashi can be seen 
+                throughout all sectors of Japanese service, and we want to extend this to our customers as well. Experience Japan through 
+                the commitment we here at You-Goods have made to bringing the spirit of omotenashi to every single person who comes across us.
+            </p><p>
+                No matter how small or large the order, we promise to impress you with our impeccable customer service, quick turnarounds, and 
+                reasonable prices. Order your custom keychains with You-Goods today.Featured on Media Coverage</p>
+        </div>
+        </div>
+
+        <div id="includedFooter"></div>
+        </main>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    </body>
+
+    <script>
+        $(function(){
+            $("#includedNavbar").load("include/navbar.html"); 
+            $("#includedFooter").load("include/footer.html"); 
+        });
+
+        function Logged()
+        {
+          Swal.fire({
+            title: 'Error!',
+            text: 'Do you want to continue',
+            icon: 'success',
+            confirmButtonText: 'Cool',
+          });
+        }
+    </script>
+</html>

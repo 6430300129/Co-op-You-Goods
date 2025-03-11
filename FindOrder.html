@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.101.0">
+    <title>Carousel Template · Bootstrap v4.6</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.6/examples/carousel/">
+
+    <meta name=".category img {
+        width: 100%; /* ปรับเต็มพื้นที่ container */
+        height: 350px; /* ความสูงเท่ากัน */
+        object-fit: cover; /* ปรับให้สมดุลในกรอบ */
+      }" content="">
+
+      <meta name=".material img {
+        width: 100%; /* ปรับเต็มพื้นที่ container */
+        height: 350px; /* ความสูงเท่ากัน */
+        object-fit: cover; /* ปรับให้สมดุลในกรอบ */
+      }" content="">
+
+    <!-- Bootstrap core CSS -->
+    <link href="/style/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../style/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href= "https://unpkg.com/@primer/css@^18.0.0/dist/primer.css" /> 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"> <!--  icon-cart -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet"> <!--  icon-search -->
+    <link href="css/Navbarstyle.css" rel="stylesheet"> <!--  import Navbar style -->
+    <link href="css/FooterStyle.css" rel="stylesheet"> <!--  import Footer style -->
+
+    <!-- Custom styles for this template -->
+    <link href="carousel.css" rel="stylesheet">
+    
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      .category {
+        gap: 10px; /* ระยะห่างระหว่างรูปภาพ */
+        margin: 10px;
+        position: relative;
+      }
+      .category img {
+        width: 100%; /* ปรับเต็มพื้นที่ container */
+        height: 350px; /* ความสูงเท่ากัน */
+        object-fit: cover; /* ปรับให้สมดุลในกรอบ */
+      }
+      #txt-Cproduct {
+        position: absolute;
+        bottom: 7%; /*ระยะจากด้านล่าง*/
+        left: 10%; /* ระยะจากด้านซ้าย */
+        font-weight: bold;
+        font-size: 22px;
+        color: black;
+        background-color: white;
+      }
+      .material {
+        gap: 10px; /* ระยะห่างระหว่างรูปภาพ */
+        margin: 10px;
+        position: relative;
+      }
+      .material img {
+        width: 100%; /* ปรับเต็มพื้นที่ container */
+        height: 500px; /* ความสูงเท่ากัน */
+        object-fit: cover; /* ปรับให้สมดุลในกรอบ */
+      }
+      #txt-Mproduct {
+        position: absolute;
+        bottom: 4%; /*ระยะจากด้านล่าง*/
+        left: 10%; /* ระยะจากด้านซ้าย */
+        font-weight: bold;
+        font-size: 22px;
+        color: black;
+        background-color: white;
+      }
+      .item{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+      .logo{
+        width: 150px;
+        margin-left: 10px;
+        margin-right: 20px;
+      }
+      .ad {
+        width: 100%;
+        max-width: 1010px;
+        height: 250px;
+        background-image: url("https://you-goods.com/uploads/banner/web/banner-yougoods-christmas.jpg?v=0903");
+        background-size: 100% 100%;
+        margin: 50px auto; /* ระยะห่างด้านบน-ล่าง และกึ่งกลางแนวนอน */
+      }
+      .bodyfix{
+        padding-top: 0px;
+        padding-bottom: 0px;
+      }
+      .horizotal-scroll{
+        width: 100%;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+      }
+      .bg-light-box{
+        background-color: white !important;
+      }
+      .card-news{
+        width: auto;
+        height: 191px;
+      }
+      .txt-style{
+        color: black;
+      }
+      .zoom {
+        transition: transform .2s; /* Animation */
+        margin: 0 auto;
+      }
+      .zoom:hover {
+          transform: scale(1.1); /* เปลี่ยนอัตราขยายตามต้องการ เช่น 1.2 = 120% */
+      }
+      .carousel-fix{
+          margin-bottom: 1rem !important;
+      }
+      .box {
+          width: auto;
+          background-color: #ffffff;
+          display: flex;
+          align-items: center;
+          justify-content: left;
+          margin-left: 10%;
+          margin-top: 70px;
+      }
+      .txt-box {
+          color: black;
+          font-size: 55px;
+          font-weight: 500;
+          font-family: Clash Display;
+          text-align: left;
+          margin-left: 10%;
+          margin-top: 5%;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 1200px) {
+          .txt-box {
+              font-size: 64px; /* ลดขนาดตัวอักษรสำหรับหน้าจอที่เล็กลง */
+              margin-right: 10%;
+          }
+      }
+      @media (max-width: 768px) {
+          .txt-box {
+              font-size: 48px; /* ลดขนาดตัวอักษรเพิ่มเติม */
+              margin-right: 8%;
+          }
+          .title{
+              font-size: 28px !important;
+          }
+          .sub-title{
+              font-size: 24px !important;
+          }
+      }
+      @media (max-width: 700px) {
+          .txt-box {
+              font-size: 32px; /* ขนาดตัวอักษรเล็กสำหรับมือถือ */
+              margin-right: 5%;
+          }
+          .title{
+              font-size: 26px !important;
+          }
+          .sub-title{
+              font-size: 20px !important;
+          }
+      }
+      @media (max-width: 400px) {
+          .txt-box {
+              font-size: 30px; /* ขนาดตัวอักษรเล็กสำหรับมือถือ */
+              margin-right: 5%;
+          }
+          .title{
+              font-size: 22px !important;
+          }
+          .sub-title{
+              font-size: 18px !important;
+          }
+      }
+      .search-bar {
+      display: flex;
+      align-items: center;
+      justify-content: right;
+      margin-top: 30px;
+      }
+      .compare-img{
+        width: 100%;
+        height: 100%  ;
+        max-width: 200px;
+        max-height: 200px;
+        margin-bottom: 20px;
+      }
+      /* ------- you also like ------- */
+      .album {
+          padding: 20px 0;
+      }
+      .container {
+          max-width: 1200px;
+          margin: auto;
+      }
+      .card .text-overlay {
+        position: absolute;
+        bottom: 18%;
+        left: 10%;
+        color: rgb(0, 0, 0);
+        background-color: rgba(255, 255, 255, 0.6);
+        padding-left: 10px;
+        padding-right: 10px;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 800;
+      }
+      .card .btn-overlay {
+          position: absolute;
+          bottom: 5%;
+          left: 10%;
+          background-color: #950A1F;
+          color: white;
+          border: none;
+          padding: 2px 20px;
+          border-radius: 20px;
+          font-size: calc(5px + 0.5vw);
+          text-decoration: none;
+          text-align: center;
+          display: inline-block;
+          font-weight: 800;
+      }
+      .card .btn-overlay:hover {
+          background-color: #c4122c;
+      }
+      .title{
+          font-size: 40px;
+          font-weight: 600;
+          color: black;
+      }
+      .sub-title{
+          font-size: 26px;
+          font-weight: 200;
+          margin: 20px;
+          color: black;
+      }
+      .important{
+          color: red;
+      }
+      .head-box{
+          font-size: 16px;
+          margin-bottom: 18px;
+      }
+      .btn-continue{
+          width: 100%;
+          height: 45px;
+          color: white;
+          background-color: #3F6D07;
+          border-radius: 10px;
+          font-size: 20px;
+      }
+      .red-line{
+          width: 40%; 
+          height: 7px; 
+          background-color: #BE3455 ; 
+          margin-top: 20px; 
+          margin-bottom: 50px;
+          justify-self: center;
+      }
+      .red-line-popup{
+          width: 70%; 
+          height: 5px; 
+          background-color: #BE3455 ; 
+          margin-top: 20px; 
+          justify-self: center;
+      }
+    </style>
+  </head>
+
+  <body class="bodyfix">
+      <header>
+          <div id="includedNavbar"></div>
+      </header>
+
+      <main role="main">   
+        <p class="txt-box">FIND YOUR ORDER</p>
+      
+        <div style="width: 100%; text-align: center; margin-top: 10px;">
+            <div>
+                <p class="title"> Look it up with your order number</p>
+                <p class="sub-title"> Find an individal order.</p>
+            </div>
+        
+            <div class="red-line"></div>
+        </div>
+        
+        <div class="col-md-12 col-lg-12 order-md-last" style="max-width: 60%;width: 1000px;justify-self: center; margin-bottom: 90px;">
+            <form id="form-find-order" method="post" action="https://you-goods.com/find-your-order/check">
+                <input type="hidden" name="_token" value="jlw6cshbjq3IhZLRhUJ41Wrn8EzGRxzqREbVBFkV">                        
+                <div class="row g-3">
+                    <div class="col-12 head-box">
+                        <label for="order_number" class="form-label"><b>Order Number: <span class="important">*</span></b></label>
+                        <input type="text" class="form-control" id="order_number" name="order_number" placeholder="" required="">
+                    </div>
+    
+                    <div class="col-12 head-box">
+                        <label for="email_address" class="form-label"><b>Email Address: <span class="important">*</span></b></label>
+                        <input type="email" class="form-control" id="email_address" name="email_address" placeholder="" required="">
+                    </div>
+                </div>
+            
+                <div class="col-12 mt-3">
+                    <button class="btn-continue" type="submit">Continue</button>
+                </div>
+            
+                <div class="col-12 mt-3 text-center">
+                    <a style="color: #B43552; font-size: 18px;" href="javascript:void(0)" onclick="HowtoFind()">How to find your order number</a>
+                </div>
+            </form>
+        </div>
+
+        <div id="includedFooter"></div>
+      </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- add jquery for Navbar working -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+    <!-- add sweet alert working -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
+
+    <script>
+      $(function(){
+          $("#includedNavbar").load("include/navbar.html"); 
+          $("#includedFooter").load("include/footer.html"); 
+      });
+
+      function HowtoFind() {
+          Swal.fire({
+              title: '<span style="color:black; font-size: 26px; font-family: Clash Display; font-weight: bold;">How to find your order number.<div class="red-line-popup"></div></span>',
+              html: `
+                  <p style="font-size: 16px; color: gray; margin: 10px 0;">
+                      Your order number is located at the top of your Order Acknowledgement email. 
+                      You can also find your order number in the Order Summary section of your packing slip. 
+                      If you still can’t locate your order number, <span class="important">call (214) 699-0641 (U.S.) </span> and speak with a representative.
+                  </p>`,
+              showConfirmButton: true,
+              confirmButtonText: 'Continue',
+              confirmButtonColor: '#BE3455',
+              showConfirmButton: false, // ไม่แสดงปุ่มยืนยัน
+          });
+      }
+    </script>
+</html>
