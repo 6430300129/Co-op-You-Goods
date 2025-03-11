@@ -247,41 +247,45 @@
       $("#includedNavbar").load("include/navbar.html"); 
       $("#includedFooter").load("include/footer.html"); 
   });
-
   async function ForgotAlert() {
-      const { value: email } = await Swal.fire({
-          iconHtml: '<i class="bi bi-lock-fill" style="font-size: 40px; color: white;"></i>',
-          title: '<span style="color:black; font-size: 24px; font-family: Clash Display; font-weight: bold;">Forgot your password?</span>',
-          html: `
-              <p style="font-size: 16px; color: gray; margin: 10px 0;">Enter your email to reset it!</p>
-              <input type="email" id="email-input" class="swal2-input" placeholder="Email" style="margin-bottom: 10px;">
-          `,
-          showConfirmButton: true,
-          confirmButtonText: 'Confirm',
-          confirmButtonColor: '#BE3455',
-          customClass: {
-              confirmButton: 'swal2-confirm-custom',
-          },
-          focusConfirm: false,
-          preConfirm: () => {
-              const email = document.getElementById('email-input').value;
-              if (!email) {
-                  Swal.showValidationMessage('Please enter your email address');
-              }
-              return email;
-          },
-          footer: '<a href="SignIn.html" style="font-size: 14px; color: gray; text-decoration: none; display: inline-block; margin-top: 10px;">← Back to sign in</a>'
-      });
-    
-      if (email) {
-          Swal.fire({
-              icon: 'success',
-              title: 'Email Sent!',
-              html: `<p style="font-size: 16px; color: gray;">we have emailed your password reset link to <b>${email}</b>.</p>`,
-              confirmButtonText: 'Done',
-              confirmButtonColor: '#BE3455',
-          });
-      }
-  }
+    const { value: email } = await Swal.fire({
+        iconHtml: '<i class="bi bi-lock-fill" style="font-size: 40px; color: white;"></i>',
+        title: '<span style="color:black; font-size: 24px; font-family: Clash Display; font-weight: bold;">Forgot your password?</span>',
+        html: `
+            <p style="font-size: 16px; color: gray; margin: 10px 0;">Enter your email to reset it!</p>
+            <input type="email" id="email-input" class="swal2-input" placeholder="Email" style="margin-bottom: 10px;">
+        `,
+        showConfirmButton: true,
+        confirmButtonText: 'Confirm',
+        confirmButtonColor: '#BE3455',
+        customClass: {
+            confirmButton: 'swal2-confirm-custom',
+        },
+        focusConfirm: false,
+        preConfirm: () => {
+            const email = document.getElementById('email-input').value;
+            if (!email) {
+                Swal.showValidationMessage('Please enter your email address');
+            }
+            return email;
+        },
+        footer: '<a href="SignIn.html" style="font-size: 14px; color: gray; text-decoration: none; display: inline-block; margin-top: 10px;">← Back to sign in</a>'
+    });
+  
+    if (email) {
+        Swal.fire({
+            icon: 'success',
+            title: 'Email Sent!',
+            html: `<p style="font-size: 16px; color: gray;">We have emailed your password reset link to <b>${email}</b>.</p>`,
+            confirmButtonText: 'Done',
+            confirmButtonColor: '#BE3455',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = 'SetPassword.html'; // Redirect to SetPassword.html when "Done" is clicked
+            }
+        });
+    }
+}
+
 </script>
 </html>
